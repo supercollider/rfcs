@@ -1,4 +1,4 @@
-# SuperCollider RFC
+# SuperCollider RFCs
 
 The RFC (Request for Comment) system allows SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
 
@@ -17,14 +17,28 @@ To help you write great RFCs, we have a template structure for you to fill out. 
 
 ## Discussing an RFC
 
-There is a very real danger when an RFC discussion plays out, and that danger is derailment and off-topic discussion. Imagine spending a lot of time and effort making a proposal, then finally showing it to the list. But then someone makes an offhand comment, and the majority of the thread consists of musings about a tangential topic. Nobody seems to show interest in helping to advance the proposal. How would you feel?
 
-If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone. Just by answering these questions, you've already done a lot:
+If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
 
 - Do you agree with the proposal in its current form? Does it adequately address any concerns or objections you have?
-- If you are neutral on the proposal, which points in favor and against the RFC strike you as particularly strong?
 - Do you have suggestions for how the RFC can be revised or expanded, especially in the Remaining Work section? (Be careful though -- avoid scope creep.)
 
-The SC community is an enthusiastic one that loves talking about cool ideas. Unfortunately, tangential discussion often obscures the real purpose of the discussion, and causes derailment and distraction from the goal of reaching a conclusion. **Starting or continuing tangents is disrespectful to the RFC author and is strongly discouraged.**
+### Don't be shy
+
+Even if you aren't an active SC contributor, or if you don't feel "qualified" to discuss the topic, you can and should directly state your opinion on an RFC that affects you in some way.
+
+Even a brief message like
+
+> I agree with this. X has caused a lot of problems for me and this would be great.
+
+is extremely helpful.
+
+People who disagree with a proposal are more likely to speak up. To counterbalance this, a lot of people simply posting "I agree" will give a good impression of the amount of support in the community.
+
+### No Wafflin' Around
+
+There is a very real danger when an RFC discussion plays out, and that danger is derailment and off-topic discussion. Imagine spending a lot of time and effort making a proposal, then finally showing it to the list. Nobody seems to show interest in helping to advance the proposal. How would you feel?
+
+The SC community is an enthusiastic one that loves talking about cool ideas. Unfortunately, tangential discussion often dilutes the thread and makes it hard to actually gauge what the consensus is. **Starting or continuing tangents is disrespectful to the RFC author and is strongly discouraged.**
 
 Showing up to a thread with some tangential musings, in place of any actual opinion stated on the original RFC, is known as Wafflin' Around. **Wafflin' Around is punishable by death.**

@@ -59,4 +59,4 @@ Whether you're authoring or discussing an RFC, scheduling Skype meetings with ot
 
 When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major objections come up, then the RFC passes.
 
-The motion of the FCP may be made by anyone who was involved in the discussion.
+The motion for the Final Comment Period may be made by anyone who was involved in the discussion.

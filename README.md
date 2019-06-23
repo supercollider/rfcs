@@ -1,6 +1,24 @@
 # SuperCollider RFCs
 
-The RFC (Request for Comment) system allows SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
+RFC (Request for Comment) is an informal way for SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
+
+## What does an RFC do?
+
+The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It makes it easy to share and collaborate on design documents, and keeps the community organized and goal-oriented in case of controversial proposals.
+
+Visibility and inclusivity are important values for RFCs. They are advertised to both developer and user communication channels so everyone can participate.
+
+The following generally should go through an RFC:
+
+- New features.
+- Deprecation of features.
+- Significant breaking changes.
+- Organizational changes, including changes to the RFC process itself.
+
+The following do not need to go through an RFC:
+
+- Bug fixes.
+- Releases of new SuperCollider versions.
 
 ## Proposing an RFC
 
@@ -13,9 +31,11 @@ To help you write great RFCs, we have a template structure for you to fill out. 
   - What specific problems are you facing right now that you're trying to address?
   - Are there any previous discussions? Link to them and summarize them.
   - Is there any precedent set by other software? If so, link to resources.
-- **Specification.** A concrete, technical discussion about what is being planned.
+- **Specification.** A concrete explanation of what is being planned.
 - **Drawbacks.** Carefully consider every possible objection and issue with your proposal.
 - **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RfC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
+
+An RFC is only a design document, and does not need to be fully or partially implemented to be approved.
 
 ## Discussing an RFC
 
@@ -57,6 +77,4 @@ Whether you're authoring or discussing an RFC, scheduling Skype meetings with ot
 
 ## Finalizing an RFC
 
-When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major objections come up, then the RFC passes.
-
-The motion for the Final Comment Period may be made by anyone who was involved in the discussion.
+When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major new developments occur, the RFC is marked as **passed** or **rejected**. The motion for the Final Comment Period may be made by anyone who was involved in the discussion.

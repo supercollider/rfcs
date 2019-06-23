@@ -22,6 +22,8 @@ The following do not need to go through an RFC:
 
 ## Proposing an RFC
 
+Fork this repository. Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md`. Fill it out, and make a pull request back to this repository.
+
 Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations and showing the reader what the problems are and how the proposal concretely and practically addresses them.
 
 To help you write great RFCs, we have a template structure for you to fill out. This skeleton helps you write a coherent and persuasive proposal:

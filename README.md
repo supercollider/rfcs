@@ -8,15 +8,16 @@ Great RFCs are strong and decisive with clear and direct writing. They do a grea
 
 To help you write great RFCs, we have a template structure for you to fill out. This skeleton helps you write a coherent and persuasive proposal:
 
+- **Summary.** Very short description.
 - **Motivation.** Introduce and set the background for your proposal. Some example points of discussion:
   - What specific problems are you facing right now that you're trying to address?
-  - Are there any previous discussions? Link to them.
+  - Are there any previous discussions? Link to them and summarize them.
+  - Is there any precedent set by other software? If so, link to resources.
 - **Specification.** A concrete, technical discussion about what is being planned.
-- **Downsides, risks, and challenges.** Carefully consider every possible objection and issue with your proposal.
-- **Remaining questions.** Are there any portions of your proposal which need to be discussed with the community before the RfC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly remaining questions and not too much substance, it may not be ready.
+- **Drawbacks.** Carefully consider every possible objection and issue with your proposal.
+- **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RfC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
 
 ## Discussing an RFC
-
 
 If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
 
@@ -24,7 +25,7 @@ It is especially important to address these questions:
 
 - Do you agree with the proposal in its current form?
 - Are concerns and questions adequately addressed?
-- Do you have suggestions for how the RFC can be revised or expanded, especially in the Remaining Questions section?
+- Do you have suggestions for how the RFC can be revised or expanded, especially in the Unresolved Questions section?
 
 The RFC will likely undergo numerous revisions in the discussion process.
 

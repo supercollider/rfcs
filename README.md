@@ -43,9 +43,19 @@ An RFC is only a design document, and does not need to be fully or partially imp
 
 After the RFC is ready to announce, please announce it to:
 
-- A GitHub issue. (It should be locked.)
-- The sc-dev *and* sc-users mailing lists.
-- scsynth.org forums.
+- sc-dev
+- sc-users
+- scsynth.org
+
+Here is a template:
+
+```
+Subject: RFC: Deprecate 
+
+A new RFC (request for comment) has been opened here:
+
+https://github.com/supercollider/rfcs/pull/1
+```
 
 ## Discussing an RFC
 
@@ -90,6 +100,8 @@ Whether you're authoring or discussing an RFC, scheduling Skype meetings with ot
 ## Finalizing an RFC
 
 When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major new developments occur, the RFC is marked as **passed** or **rejected**. The motion for the Final Comment Period may be made by anyone who was involved in the discussion.
+
+After the RFC is finalized, close the issue in the core SuperCollider repository.
 
 ## Implementing a passed RFC
 

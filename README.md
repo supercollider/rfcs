@@ -22,7 +22,7 @@ The following do not need to go through an RFC:
 
 ## Proposing an RFC
 
-Fork this repository. Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md`. Fill it out, and make a pull request back to this repository.
+Fork this repository. Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md`. Fill it out, and make a pull request back to this repository. An open pull request is the RFC, and is also the location of the discussion.
 
 Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations and showing the reader what the problems are and how the proposal concretely and practically addresses them.
 
@@ -39,7 +39,17 @@ To help you write great RFCs, we have a template structure for you to fill out. 
 
 An RFC is only a design document, and does not need to be fully or partially implemented to be approved.
 
+### Announcing an RFC
+
+After the RFC is ready to announce, please announce it to:
+
+- A GitHub issue. (It should be locked.)
+- The sc-dev *and* sc-users mailing lists.
+- scsynth.org forums.
+
 ## Discussing an RFC
+
+Discussion about the RFC happens on the RFC pull request on GitHub. Try to avoid having involved discussions on the RFC outside of the GitHub pull request thread.
 
 If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
 

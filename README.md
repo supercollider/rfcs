@@ -49,7 +49,7 @@ An RFC is only a design document, and does not need to be fully or partially imp
 
 Make a pull request back to this repository. The open pull request **is** the RFC. Discussion of the RFC is held in the comments of the pull request.
 
-After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`. 
+After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`, and updating the "RFC PR" field inside the RFC text itself to link to the pull request.
 
 ### Step 4: Announce
 
@@ -66,7 +66,7 @@ Subject: RFC: Deprecate BadFeature
 
 A new RFC (request for comment) has been opened here:
 
-https://github.com/supercollider/rfcs/pull/XXXX
+https://github.com/supercollider/rfcs/pull/35
 
 Please visit the above link for discussion. (Do not reply to this post to discuss the RFC.)
 ```

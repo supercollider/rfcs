@@ -22,7 +22,13 @@ The following do not need to go through an RFC:
 
 ## Proposing an RFC
 
-Fork this repository. Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md`. Fill it out, and make a pull request back to this repository. An open pull request is the RFC, and is also the location of the discussion.
+### Step 1: Fork it
+
+Fork this repository if you haven't already.
+
+### Step 2: Write RFC
+
+Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md` and begin working on the RFC.
 
 Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations and showing the reader what the problems are and how the proposal concretely and practically addresses them.
 
@@ -39,7 +45,13 @@ To help you write great RFCs, we have a template structure for you to fill out. 
 
 An RFC is only a design document, and does not need to be fully or partially implemented to be approved.
 
-### Announcing an RFC
+### Step 3: File pull request
+
+Make a pull request back to this repository. The open pull request **is** the RFC. Discussion of the RFC is held in the comments of the pull request.
+
+After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`. 
+
+### Step 4: Announce
 
 After the RFC is ready to announce, please announce it to:
 
@@ -50,11 +62,13 @@ After the RFC is ready to announce, please announce it to:
 Here is a template:
 
 ```
-Subject: RFC: Deprecate 
+Subject: RFC: Deprecate BadFeature
 
 A new RFC (request for comment) has been opened here:
 
-https://github.com/supercollider/rfcs/pull/1
+https://github.com/supercollider/rfcs/pull/XXXX
+
+Please visit the above link for discussion. (Do not reply to this post to discuss the RFC.)
 ```
 
 ## Discussing an RFC

@@ -1,7 +1,6 @@
 - Title:
 - Date proposed:
-- RFC PR: https://github.com/snappizz/rfcs/pull/0000
-- SuperCollider issue: https://github.com/supercollider/supercollider/issue/0000
+- RFC PR: https://github.com/snappizz/rfcs/pull/0000 (update this number after RFC PR has been filed)
 
 # Summary
 

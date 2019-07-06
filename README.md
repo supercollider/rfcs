@@ -4,7 +4,7 @@ RFC (Request for Comment) is an informal way for SuperCollider contributors to d
 
 ## What does an RFC do?
 
-The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It makes it easy to share and collaborate on design documents, and keeps the community organized and goal-oriented in case of controversial proposals.
+The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It provides a space for sharing and collaborating on design documents, and keeping community discussion organized and goal-oriented.
 
 Visibility and inclusivity are important values for RFCs. They are advertised to both developer and user communication channels so everyone can participate.
 

@@ -115,8 +115,6 @@ Whether you're authoring or discussing an RFC, scheduling Skype meetings with ot
 
 When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major new developments occur, the RFC is marked as **passed** or **rejected**. The motion for the Final Comment Period may be made by anyone who was involved in the discussion.
 
-After the RFC is finalized, close the issue in the core SuperCollider repository.
-
 ## Implementing a passed RFC
 
 Implementation of an RFC can start before, during, or after it has been approved. In fact, if you propose an RFC, you don't need to be the person to implement it. However, usually the implementer is the same person as the RFC author.

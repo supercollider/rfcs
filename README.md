@@ -19,6 +19,9 @@ The following do not need to go through an RFC:
 
 - Bug fixes.
 - Releases of new SuperCollider versions.
+- Anything highly unlikely to be controversial or needing discussion.
+
+An RFC is only a design document, and not a single line of code needs to be written for the discussion to be approved (although prototyping on a branch is often a good idea). An approved RFC has no timeline for when it needs to be implemented.
 
 ## Proposing an RFC
 
@@ -48,8 +51,6 @@ To help you write great RFCs, we have a template structure for you to fill out. 
 - **Specification.** A concrete, thorough explanation of what is being planned.
 - **Drawbacks.** Carefully consider every possible objection and issue with your proposal.
 - **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RFC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
-
-An RFC is only a design document, and does not need to be fully or partially implemented to be approved.
 
 ### Step 3: File pull request
 

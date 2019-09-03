@@ -109,6 +109,12 @@ The SC community is an enthusiastic one that loves talking about cool ideas. Unf
 
 The purpose of the RFC thread is to reach a conclusion, and any commentary that does not contribute to that is damaging to the RFC process.
 
+### Civility and respect
+
+Like all other discussions that happen in the SuperCollider community, RFC discussions are governed by our [Code of Conduct](https://github.com/supercollider/supercollider/blob/develop/CODE_OF_CONDUCT.md).
+
+Creating an RFC is a laborious project. Commenting on an RFC should be done with respect and empathy for the hard work that the author has put into it.
+
 ### Avoid scope creep
 
 You should make suggestions on how the RFC can be revised or expanded. But be careful not to expand it too much and develop it into something far more ambitious than was originally intended.

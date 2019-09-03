@@ -26,7 +26,7 @@ The following do not need to go through an RFC:
 
 The development community is small and has limited bandwidth. If there are a lot of RFCs open, it may be better to help advance existing discussions rather than pile on new ones.
 
-As an RFC author, it's strongly recommended to only spearhead one RFC at a time.
+As an RFC author, it's best if you only have one RFC of yours open at any moment.
 
 ### Step 1: Fork this repository
 

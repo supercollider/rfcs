@@ -14,6 +14,7 @@ The following generally should go through an RFC:
 - Deprecation of features.
 - Significant breaking changes.
 - Organizational changes, including changes to the RFC process itself.
+- Anything that we can't reach consensus on in an issue or PR thread.
 
 The following do not need to go through an RFC:
 

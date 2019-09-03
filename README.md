@@ -79,7 +79,7 @@ Please visit the above link for discussion. (Do not reply to this post to discus
 
 ## Discussing an RFC
 
-Discussion about the RFC happens on the RFC pull request on GitHub. Try to avoid having involved discussions on the RFC outside of the GitHub pull request thread.
+Discussion about the RFC happens on the RFC pull request on GitHub. Don't discuss outside the pull request thread -- that fragments the conversation.
 
 If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
 
@@ -97,7 +97,7 @@ Even if you aren't an active SC contributor, or if you don't feel "qualified" to
 
 Even a brief message like
 
-> I agree with this. X has caused a lot of problems for me and this would be great.
+> I agree with this. X has caused a lot of problems in my performance setup and this would be great.
 
 is extremely helpful.
 

@@ -1,6 +1,6 @@
 # SuperCollider RFCs
 
-RFC (Request for Comment) is an informal way for SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
+RFC (Request for Comment) is a way for SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
 
 ## What does an RFC do?
 
@@ -22,7 +22,13 @@ The following do not need to go through an RFC:
 
 ## Proposing an RFC
 
-### Step 1: Fork it
+### Step 0: Decide if you should file an RFC
+
+The development community is small and has limited bandwidth. If there are a lot of RFCs open, it may be better to help advance existing discussions rather than pile on new ones.
+
+As an RFC author, it's strongly recommended to only spearhead one RFC at a time.
+
+### Step 1: Fork this repository
 
 Fork this repository if you haven't already.
 
@@ -30,18 +36,18 @@ Fork this repository if you haven't already.
 
 Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md` and begin working on the RFC.
 
-Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations and showing the reader what the problems are and how the proposal concretely and practically addresses them.
+Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations. Show the reader what the problems are and how the proposal concretely and practically addresses them.
 
 To help you write great RFCs, we have a template structure for you to fill out. This skeleton helps you write a coherent and persuasive proposal:
 
 - **Summary.** Very short description.
 - **Motivation.** Introduce and set the background for your proposal. Some example points of discussion:
   - What specific problems are you facing right now that you're trying to address?
-  - Are there any previous discussions? Link to them and summarize them.
+  - Are there any previous discussions? Link to them and summarize them (don't force your readers to read them though!).
   - Is there any precedent set by other software? If so, link to resources.
-- **Specification.** A concrete explanation of what is being planned.
+- **Specification.** A concrete, thorough explanation of what is being planned.
 - **Drawbacks.** Carefully consider every possible objection and issue with your proposal.
-- **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RfC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
+- **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RFC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
 
 An RFC is only a design document, and does not need to be fully or partially implemented to be approved.
 

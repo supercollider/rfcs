@@ -14,21 +14,23 @@ The RFC process is intended to bring focus and structure to discussions of impor
 
 Visibility and inclusivity are important values for RFCs. They are advertised to both developer and user communication channels so everyone can participate.
 
-The following generally should go through an RFC:
+An RFC is only a design document, and not a single line of code needs to be written for the discussion to be approved (although prototyping on a branch is often a good idea). An approved RFC has no timeline for when it needs to be implemented.
 
-- New features.
-- Deprecation of features.
-- Significant breaking changes.
-- Organizational changes, including changes to the RFC process itself.
-- Anything that we can't reach consensus on in an issue or PR thread.
+## When should I file an RFC?
+
+RFCs should be filed for proposing "substantial" changes. The meaning of "substantial" is subjective, but a good start would be anything that benefits from design discussion. Put a different way, it's recommended to file an RFC if the design or implementation isn't immediately clear, or if there are drawbacks or potential consequences that require discussion first. The types of changes include:
+
+- New features
+- Breaking changes
+- Organizational changes, including changes to the RFC process itself
 
 The following do not need to go through an RFC:
 
 - Bug fixes.
 - Releases of new SuperCollider versions.
-- Anything highly unlikely to be controversial or needing discussion.
+- Anything highly unlikely to be controversial or in need of discussion.
 
-An RFC is only a design document, and not a single line of code needs to be written for the discussion to be approved (although prototyping on a branch is often a good idea). An approved RFC has no timeline for when it needs to be implemented.
+If you don't know whether you should file an RFC, it's fine to just ask.
 
 ## Proposing an RFC
 
@@ -36,7 +38,7 @@ An RFC is only a design document, and not a single line of code needs to be writ
 
 The development community is small and has limited bandwidth. If there are a lot of RFCs open, it may be better to help advance existing discussions rather than pile on new ones.
 
-As an RFC author, it's best if you only have one RFC of yours open at any moment.
+As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is porous, but you are advised to avoid multitasking and be cognizant of how much the community's attention may be divided across other issues.
 
 ### Step 1: Fork this repository
 
@@ -46,28 +48,17 @@ Fork this repository if you haven't already.
 
 Copy `rfcs/0000-template.md` to `rfcs/0000-<my-proposal-title>.md` and begin working on the RFC.
 
-Great RFCs are strong and decisive with clear and direct writing. They do a great job at explaining and justifying their motivations. Show the reader what the problems are and how the proposal concretely and practically addresses them.
-
-To help you write great RFCs, we have a template structure for you to fill out. This skeleton helps you write a coherent and persuasive proposal:
-
-- **Summary.** Very short description.
-- **Motivation.** Introduce and set the background for your proposal. Some example points of discussion:
-  - What specific problems are you facing right now that you're trying to address?
-  - Are there any previous discussions? Link to them and summarize them (don't force your readers to read them though!).
-  - Is there any precedent set by other software? If so, link to resources.
-- **Specification.** A concrete, thorough explanation of what is being planned.
-- **Drawbacks.** Carefully consider every possible objection and issue with your proposal.
-- **Unresolved questions.** Are there any portions of your proposal which need to be discussed with the community before the RFC can proceed? Be careful here -- an RFC with a lot of remaining questions is likely to be stalled. If your RFC is mostly unresolved questions and not too much substance, it may not be ready.
+Please put a lot of thought into your writing. A great RFC explains and justifies its motivations and carefully considers all drawbacks and alternatives. Show the reader what the problems are and how the proposal concretely and practically addresses them.
 
 ### Step 3: File pull request
 
 Make a pull request back to this repository. The open pull request **is** the RFC. Discussion of the RFC is held in the comments of the pull request.
 
-After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`, and updating the "RFC PR" field inside the RFC text itself to link to the pull request.
+After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`, and updating the "RFC PR" field inside the RFC text itself to link to the pull request. The point of this is to make the `rfcs/` folder a nice chronologically ordered archive of documents so people can look at past RFCs.
 
 ### Step 4: Announce
 
-After the RFC is ready to announce, please announce it to:
+After the RFC is ready to go, please announce it to:
 
 - sc-dev
 - sc-users
@@ -82,59 +73,45 @@ A new RFC (request for comment) has been opened here:
 
 https://github.com/supercollider/rfcs/pull/35
 
-Please visit the above link for discussion. (Do not reply to this post to discuss the RFC.)
+Please visit the above link for discussion.
 ```
 
 ## Discussing an RFC
 
-Discussion about the RFC happens on the RFC pull request on GitHub. Don't discuss outside the pull request thread -- that fragments the conversation.
-
-If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
-
-It is especially important to address these questions:
-
-- Do you agree with the proposal in its current form?
-- Are concerns and questions adequately addressed?
-- Do you have suggestions for how the RFC can be revised or expanded, especially in the Unresolved Questions section?
+Discussion about the RFC should happen on the RFC pull request on GitHub. If discussions happen outside the GitHub thread, it's best to link and summarize them in the RFC thread to make the conversations easier to track.
 
 The RFC will likely undergo numerous revisions in the discussion process.
 
-### Don't be shy
+If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
 
-Even if you aren't an active SC contributor, or if you don't feel "qualified" to discuss the topic, you can and should directly state your opinion on an RFC that affects you in some way.
+Here are some guidelines:
 
-Even a brief message like
-
-> I agree with this. X has caused a lot of problems in my performance setup and this would be great.
-
-is extremely helpful.
-
-People who disagree with a proposal are more likely to speak up. To counterbalance this, a lot of people simply posting "I agree" will give a good impression of the amount of support in the community.
-
-### Stay on topic
-
-The SC community is an enthusiastic one that loves talking about cool ideas. Unfortunately, tangential discussion often dilutes the thread and makes it hard to actually gauge what the consensus is. **Starting or continuing tangents is disrespectful to the RFC author and is strongly discouraged.**
-
-The purpose of the RFC thread is to reach a conclusion, and any commentary that does not contribute to that is damaging to the RFC process.
-
-### Civility and respect
-
-Like all other discussions that happen in the SuperCollider community, RFC discussions are governed by our [Code of Conduct](https://github.com/supercollider/supercollider/blob/develop/CODE_OF_CONDUCT.md).
-
-Creating an RFC is a laborious project. Commenting on an RFC should be done with respect and empathy for the hard work that the author has put into it.
-
-### Avoid scope creep
-
-You should make suggestions on how the RFC can be revised or expanded. But be careful not to expand it too much and develop it into something far more ambitious than was originally intended.
-
-### Meetings are great
-
-Whether you're authoring or discussing an RFC, scheduling Skype meetings with others involved is a really great way to move it forward.
+- **Think about the important questions:**
+  - Do you agree with the proposal in its current form?
+  - Are concerns and questions adequately addressed?
+  - Do you have suggestions for how the RFC can be revised or expanded, especially in the Unresolved Questions section?
+- **Don't be shy:** Even if you aren't an active SC contributor, or if you don't feel "qualified" to discuss the topic, you can and should directly state your opinion on an RFC that affects you in some way.
+- **Stay on topic:** Starting or continuing tangents is disrespectful to the RFC author and is strongly discouraged. Unfortunately, tangential discussion often dilutes the thread and makes it hard to actually gauge what the consensus is. The purpose of the RFC thread is to reach a conclusion, and any commentary that does not contribute to that is damaging to the RFC process.
+- **Civility and respect:** Like all other discussions that happen in the SuperCollider community, RFC discussions are governed by our [Code of Conduct](https://github.com/supercollider/supercollider/blob/develop/CODE_OF_CONDUCT.md). Creating an RFC is a laborious project. Commenting on an RFC should be done with respect and empathy for the hard work that the author has put into it.
+- **Avoid scope creep:** You should make suggestions on how the RFC can be revised or expanded, but be careful not to expand it too much and develop it into something far more ambitious than was originally intended.
 
 ## Finalizing an RFC
 
-When it appears that most open questions in the discussion have been resolved and addressed in the RFC's text, a motion for a Final Comment Period may be made. A Final Comment Period lasts 14 days. If no major new developments occur, the RFC is marked as **passed** or **rejected**. The motion for the Final Comment Period may be made by anyone who was involved in the discussion.
+When the RFC seems ready to conclude, anyone may make a motion for a Final Comment Period. The Final Comment Period lasts 14 days, and has a *disposition* to either **pass** or **reject**.
 
-## Implementing a passed RFC
+When should the Final Comment Period start? There doesn't need to be a consensus with everyone involved (which is usually impossible), but the RFC should be in a state where the author feels that its writing effort is complete, the arguments have been clearly articlated, discussions are resolved and drawbacks acknowledged in the RFC's text, and there isn't a strong consensus *against* the disposition.
 
-Implementation of an RFC can start before, during, or after it has been approved. In fact, if you propose an RFC, you don't need to be the person to implement it. However, usually the implementer is the same person as the RFC author.
+Sometimes, RFCs can reach points of disagreement where no clear consensus is in sight. Unfortunately, there is no way that this RFC process can solve such issues, and these have to be handled on a case-by-case basis.
+
+If no important developments occur during this time frame, someone with write access merges (for passed RFCs) or closes (for rejected RFCs) the RFC PR.
+
+At any point, the RFC author can also choose to **withdraw** an RFC with no 14-day grace period necessary.
+
+Implementation of an RFC can start before, during, or after it has been approved. In fact, if you propose an RFC, you don't need to be the person to implement it, but usually the implementer is the same person as the RFC author.
+
+## About the RFC process
+
+This isn't a legal document, and you shouldn't spend a lot of time analyzing its wording. This process is intentionally quite informal and subjective. Situations will come up that may not have been anticipated by this article, and they should be handled on a case-by-case basis.
+
+If something is ambiguous in this article, that means it left up to the discussion. If something is a *persistent* cause of ambiguity and confusion, then it may be wise to amend the RFC process itself for clarification.
+

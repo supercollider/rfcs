@@ -1,6 +1,6 @@
 # SuperCollider RFCs
 
-RFC (Request for Comment) is a way for SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
+RFC (Request for Comment) is a way for SuperCollider contributors to propose, design, and discuss new features and changes in project direction in a focused environment.
 
 **Note:** This document is presented as a proposal of the RFC process itself -- it isn't a "live" project, so please don't go filing any RFCs yet! :) However, there is a [pull request opened as an example](https://github.com/snappizz/rfcs/pull/1).
 
@@ -18,6 +18,8 @@ An RFC is only a design document, and not a single line of code needs to be writ
 
 ## When should I file an RFC?
 
+If you have an idea for something and are unsure if it needs an RFC, the best way to find out is to just ask! Collaborators are strongly encouraged to talk about their ideas with other project members before submitting an RFC. This can also help gauge early support for the feature and work out any obvious issues or design decisions.
+
 RFCs should be filed for proposing "substantial" changes. The meaning of "substantial" is subjective, but a good start would be anything that benefits from design discussion. Put a different way, it's recommended to file an RFC if the design or implementation isn't immediately clear, or if there are drawbacks or potential consequences that require discussion first. The types of changes include:
 
 - New features
@@ -26,19 +28,15 @@ RFCs should be filed for proposing "substantial" changes. The meaning of "substa
 
 The following do not need to go through an RFC:
 
-- Bug fixes.
-- Releases of new SuperCollider versions.
-- Anything highly unlikely to be controversial or in need of discussion.
-
-If you don't know whether you should file an RFC, it's fine to just ask.
+- Bug fixes
+- Releases of new SuperCollider versions
+- Anything unlikely to be controversial or in need of discussion
 
 ## Proposing an RFC
 
 ### Step 0: Decide if you should file an RFC
 
-The development community is small and has limited bandwidth. If there are a lot of RFCs open, it may be better to help advance existing discussions rather than pile on new ones.
-
-As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is porous, but you are advised to avoid multitasking and be cognizant of how much the community's attention may be divided across other issues.
+As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is not strictly enforced, but you are advised to be respectful of other contributors who would also like their RFCs to receive attention, and to be cognizant of the potential cost of spreading the community's attention thinly across a multitude of proposals.
 
 ### Step 1: Fork this repository
 
@@ -63,6 +61,8 @@ After the RFC is ready to go, please announce it to:
 - sc-dev
 - sc-users
 - scsynth.org
+- Facebook (optional)
+- Slack #dev channel (optional)
 
 Here is a template:
 
@@ -99,13 +99,25 @@ Here are some guidelines:
 
 When the RFC seems ready to conclude, anyone may make a motion for a Final Comment Period. The Final Comment Period lasts 14 days, and has a *disposition* to either **pass** or **reject**.
 
-When should the Final Comment Period start? There doesn't need to be a consensus with everyone involved (which is usually impossible), but the RFC should be in a state where the author feels that its writing effort is complete, the arguments have been clearly articlated, discussions are resolved and drawbacks acknowledged in the RFC's text, and there isn't a strong consensus *against* the disposition.
+To make a motion for Final Comment Period, simply leave a comment on the pull request thread. The Final Comment Period should also be announced on the same forums as above: sc-users, sc-dev, and scsynth.org; and optionally Facebook and Slack's #dev channel. Here is a template:
+
+```
+Subject: RFC Final Comment Period: Deprecate BadFeature
+
+An RFC has now entered Final Comment Period. In 14 days, discussion will end and the proposal will either be accepted, rejected or withdrawn:
+
+https://github.com/supercollider/rfcs/pull/35
+
+Please visit the above link for discussion.
+```
+
+When should the Final Comment Period start? There doesn't need to be a consensus with everyone involved (which is usually impossible), but the RFC should be in a state where the author feels that the writing effort is complete, the arguments have been clearly articlated, discussions are resolved and drawbacks acknowledged in the RFC's text, and there isn't a strong consensus *against* the proposal.
 
 Sometimes, RFCs can reach points of disagreement where no clear consensus is in sight. Unfortunately, there is no way that this RFC process can solve such issues, and these have to be handled on a case-by-case basis.
 
 If no important developments occur during this time frame, someone with write access merges (for passed RFCs) or closes (for rejected RFCs) the RFC PR.
 
-At any point, the RFC author can also choose to **withdraw** an RFC with no 14-day grace period necessary.
+At any point, the RFC author can also choose to **withdraw** an RFC, with no 14-day grace period necessary.
 
 Implementation of an RFC can start before, during, or after it has been approved. In fact, if you propose an RFC, you don't need to be the person to implement it, but usually the implementer is the same person as the RFC author.
 
@@ -113,5 +125,4 @@ Implementation of an RFC can start before, during, or after it has been approved
 
 This isn't a legal document, and you shouldn't spend a lot of time analyzing its wording. This process is intentionally quite informal and subjective. Situations will come up that may not have been anticipated by this article, and they should be handled on a case-by-case basis.
 
-If something is ambiguous in this article, that means it left up to the discussion. If something is a *persistent* cause of ambiguity and confusion, then it may be wise to amend the RFC process itself for clarification.
-
+If something is ambiguous in this article, that means it is left up to discussion. If something is a persistent cause of confusion, then it may be wise to amend the RFC process itself for clarification.

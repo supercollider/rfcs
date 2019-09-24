@@ -36,7 +36,7 @@ The following do not need to go through an RFC:
 
 ### Step 0: Decide if you should file an RFC
 
-As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is not strictly enforced, but you are advised to be respectful of other contributors who would also like their RFCs to receive attention, and to be cognizant of the potential cost of spreading the community's attention thinly across a multitude of proposals.
+As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is a guideline, but you are advised to be respectful of other contributors who would also like their RFCs to receive attention, and to be cognizant of the potential cost of spreading the community's attention thinly across a multitude of proposals.
 
 ### Step 1: Fork this repository
 
@@ -52,7 +52,12 @@ Please put a lot of thought into your writing. A great RFC explains and justifie
 
 Make a pull request back to this repository. The open pull request **is** the RFC. Discussion of the RFC is held in the comments of the pull request.
 
-After filing the pull request, note the pull request number (say #35). This is your RFC number. The RFC branch should then be updated by changing the file name to e.g. `rfcs/0035-<my-proposal-title>.md`, and updating the "RFC PR" field inside the RFC text itself to link to the pull request. The point of this is to make the `rfcs/` folder a nice chronologically ordered archive of documents so people can look at past RFCs.
+After the pull request is filed, the pull request number (say #35) is your RFC number. Then do the following:
+
+1. In the branch, rename the file from `rfcs/0000-<my-proposal-title>.md` to `rfcs/0035-<my-proposal-title>.md`. This makes all the proposals show up in ascending chronological order when someone visits the `rfcs` directory.
+2. In the file itself, there's a bullet point labeled "RFC PR." Update this so that it links to the pull request. This ensures that the discussion is immediately accessible from the RFC text.
+
+These are minor housekeeping steps that keep the RFC a nice, tidy, and easily navigable archive. If you make a mistake in this process, it's no huge issue -- someone else can fix it for you.
 
 ### Step 4: Announce
 

@@ -10,7 +10,7 @@ The final location for this repository would be `supercollider/rfcs`.
 
 ## What does an RFC do?
 
-The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It provides a space for sharing and collaborating on ideas and design documents, keeping community discussion organized and goal-oriented.
+The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It provides a space for sharing and collaborating on ideas and design documents, keeping community discussion organized and focused on the goal of reaching a decision.
 
 Visibility and inclusivity are important values for RFCs. They are advertised to both developer and user communication channels so everyone can participate.
 

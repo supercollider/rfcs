@@ -87,16 +87,16 @@ Discussion about the RFC should happen on the RFC pull request on GitHub. If dis
 
 The RFC will likely undergo numerous revisions in the discussion process.
 
-If you are discussing an RFC, it is your responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, talk about the contents of the RFC, and the RFC alone.
+While discussing an RFC, it is everyone's responsibility to work towards **reaching a conclusion**. When you make a post to the RFC thread, focus on the contents and implications of the RFC only.
 
 Here are some guidelines:
 
-- **Think about the important questions:**
+- **Think about these important questions:**
   - Do you agree with the proposal in its current form?
   - Are concerns and questions adequately addressed?
   - Do you have suggestions for how the RFC can be revised or expanded, especially in the Unresolved Questions section?
-- **Don't be shy:** Even if you aren't an active SC contributor, or if you don't feel "qualified" to discuss the topic, you can and should directly state your opinion on an RFC that affects you in some way.
-- **Stay on topic:** Starting or continuing tangents is disrespectful to the RFC author and is strongly discouraged. Unfortunately, tangential discussion often dilutes the thread and makes it hard to actually gauge what the consensus is. The purpose of the RFC thread is to reach a conclusion, and any commentary that does not contribute to that is damaging to the RFC process.
+- **Don't be shy:** Even if you aren't an active SC contributor, or if you don't feel "qualified" to discuss the topic, please feel free to directly state your opinion on an RFC, especially if it affects you in some way.
+- **Stay on topic:** Starting or continuing tangential or off-topic discussions is disrespectful to the RFC author and is strongly discouraged. Such discussions often dilute the thread and make it hard to read conclusions. The purpose of the RFC thread is to reach a conclusion, and any commentary that does not contribute to that is damaging to the RFC process.
 - **Civility and respect:** Like all other discussions that happen in the SuperCollider community, RFC discussions are governed by our [Code of Conduct](https://github.com/supercollider/supercollider/blob/develop/CODE_OF_CONDUCT.md). Creating an RFC is a laborious project. Commenting on an RFC should be done with respect and empathy for the hard work that the author has put into it.
 - **Avoid scope creep:** You should make suggestions on how the RFC can be revised or expanded, but be careful not to expand it too much and develop it into something far more ambitious than was originally intended.
 

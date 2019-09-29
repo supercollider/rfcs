@@ -20,7 +20,7 @@ An RFC is only a design document, and not a single line of code needs to be writ
 
 If you have an idea for something and are unsure if it needs an RFC, the best way to find out is to just ask! An RFC is much more likely to succeed if it begins life as a discussion, and collaborators are encouraged to start off by talking to other project members before submitting an RFC. This can also help gauge early support for the feature and work out any obvious issues or design decisions.
 
-RFCs are used for proposing "substantial" changes. The meaning of "substantial" is subjective, but a good start would be anything that benefits from design discussion. Put a different way, it's recommended to file an RFC if the design or implementation isn't immediately clear, or if there are drawbacks or potential consequences that require discussion first. The types of changes include:
+RFCs are used for proposing "substantial" changes. The meaning of "substantial" is subjective, but a good start would be anything that benefits from design discussion. Put a different way, it's recommended to file an RFC if the design or implementation isn't immediately clear, or if there are drawbacks or potential consequences that require discussion first. These might be worth consideration for an RFC:
 
 - New features
 - Breaking changes

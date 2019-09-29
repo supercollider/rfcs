@@ -2,12 +2,6 @@
 
 RFC (Request for Comment) is a way for SuperCollider contributors to discuss large-scale decisions in project direction in a focused environment.
 
-**Note:** This document is presented as a proposal of the RFC process itself -- it isn't a "live" project, so please don't go filing any RFCs yet! :) However, there is a [pull request opened as an example](https://github.com/snappizz/rfcs/pull/1).
-
-If you see anything worth changing in this document, please feel free to file a PR for it.
-
-The final location for this repository would be `supercollider/rfcs`.
-
 ## What does an RFC do?
 
 The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It provides a space for sharing and collaborating on design documents, and keeping community discussion organized and goal-oriented.

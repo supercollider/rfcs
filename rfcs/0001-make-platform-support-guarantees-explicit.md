@@ -59,44 +59,84 @@ may be able to switch to them and add more Windows builds without it heavily aff
 
 Release dates of various software used for SuperCollider, by version:
 
+### MacOS
+
 MacOS 10.10: October 2014
+
 MacOS 10.11: September 2015
+
 MacOS 10.12: September 2016
+
 MacOS 10.13: September 2017
+
 MacOS 10.14: September 2018
 
+### Xcode
+
 Xcode 8.0: September 2016
+
 Xcode 9.0: September 2017
+
 Xcode 10.0: September 2018
+
 Xcode 11.0: September 2019
 
+### GCC
+
 gcc 6.1: April 2016
+
 gcc 7.1: May 2017
+
 gcc 8.1: May 2018
+
 gcc 9.1: May 2019
 
+### clang
+
 clang 4: March 2017
+
 clang 5: September 2017
+
 clang 6: March 2018
+
 clang 7: September 2018
+
 clang 8: March 2019
+
 clang 9: September 2019
 
+### MSVC
+
 MSVC 2015: July 2015
+
 MSVC 2017: March 2017
+
 MSVC 2019: April 2019
 
+### Qt
+
 Qt 5.7: June 2016
+
 Qt 5.8: January 2017
+
 Qt 5.9: May 2017
+
 Qt 5.10: November 2017
+
 Qt 5.11: May 2018
+
 Qt 5.12: December 2018
+
 Qt 5.13: June 2019
 
+### Windows
+
 Windows 7: October 2009
+
 Windows 8: October 2012
+
 Windows 8.1: August 2013
+
 Windows 10: July 2015
 
 # Drawbacks

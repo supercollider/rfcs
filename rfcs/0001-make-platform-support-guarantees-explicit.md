@@ -1,6 +1,6 @@
 - Title: Make Platform Support Guarantees Explicit
 - Date proposed: 2019-10-06
-- RFC PR: https://github.com/snappizz/rfcs/pull/1
+- RFC PR: https://github.com/supercollider/rfcs/pull/1
 
 # Summary
 

@@ -55,9 +55,21 @@ We must also document exactly which versions of software are supported in each r
 We must also add continuous integration jobs to enforce these guarantees. Note that Travis now supports Windows, so we
 may be able to switch to them and add more Windows builds without it heavily affecting our overall CI run time.
 
-# Discussion
+# Drawbacks
 
-Release dates of various software used for SuperCollider, by version:
+None I can think of at present, everyone benefits from greater transparency and accountability.
+
+# Unresolved Questions
+
+Perhaps N should be chosen per platform. As we've seen, macOS moves much more quickly in breaking compatibility than
+Windows or Linuxes, and in fact appears to actively disincentivizes supporting older platforms.
+
+Similarly, perhaps it could also be chosen on the basis of the software's own release schedule and
+backwards-compatibility habits.
+
+# Reference release dates
+
+For reference, release dates of various software used for SuperCollider, by version:
 
 ### MacOS
 
@@ -138,15 +150,3 @@ Windows 8: October 2012
 Windows 8.1: August 2013
 
 Windows 10: July 2015
-
-# Drawbacks
-
-None I can think of at present, everyone benefits from greater transparency and accountability.
-
-# Unresolved Questions
-
-Perhaps N should be chosen per platform. As we've seen, macOS moves much more quickly in breaking compatibility than
-Windows or Linuxes, and in fact appears to actively disincentivizes supporting older platforms.
-
-Similarly, perhaps it could also be chosen on the basis of the software's own release schedule and
-backwards-compatibility habits.

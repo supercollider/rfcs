@@ -1,6 +1,6 @@
 - Title: Easier variable-length rests in patterns
 - Date proposed: 2019-11-01
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0004 **update this number after RFC PR has been filed**
 
 # Summary
 

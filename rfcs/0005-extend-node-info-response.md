@@ -1,6 +1,6 @@
 - Title: Extended Node Info Response
 - Date proposed: 2019-11-26
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000
+- RFC PR: https://github.com/supercollider/rfcs/pull/5
 
 # Summary
 

@@ -25,7 +25,7 @@ group. Unfortunately, for large node trees (~100 nodes or more, or with
 extensive SynthDef controls) the `/g_queryTree.reply` response is often
 malformed; the largest OSC packet cannot hold all of the data and truncates it.
 Avoiding this overflow by querying various subtrees and patching the results
-together is error-prone and unreliable for the same reasons. Tt’s not possible
+together is error-prone and unreliable for the same reasons. It’s not possible
 to query the state of a synth without potentially querying the state of its
 siblings too, which runs the risk of overflowing the OSC packet.
 

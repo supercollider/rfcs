@@ -77,6 +77,8 @@ A new RFC (request for comment) has been opened here:
 https://github.com/supercollider/rfcs/pull/35
 
 Please visit the above link for discussion.
+
+Summary: <insert the summary section from your RFC here>
 ```
 
 ## Discussing an RFC
@@ -112,6 +114,8 @@ An RFC has now entered Final Comment Period. In 14 days, discussion will end and
 https://github.com/supercollider/rfcs/pull/35
 
 Please visit the above link for discussion.
+
+Summary: <insert the summary section from your RFC here>
 ```
 
 When should the Final Comment Period start? There doesn't need to be a consensus with everyone involved (which is usually impossible), but the RFC should be in a state where the author feels that the writing effort is complete, the arguments have been clearly articlated, discussions are resolved and drawbacks acknowledged in the RFC's text, and there isn't a strong consensus *against* the proposal.

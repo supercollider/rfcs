@@ -96,9 +96,15 @@ investigated.
 
 # Unresolved Questions
 
-Should this logic be extended to all of the other node notifications (`/n_go`,
-`/n_end`, `/n_off`, `/n_on`, `/n_move`)?
+- Can `/g_queryTree` be fixed or modified to avoid the overflow problem?
 
-Can `/g_queryTree` be fixed or modified to avoid the overflow problem?
+- Is accessing a node in `NodeEndMsg::Perform()` always guaranteed to be safe?
 
-Is accessing a node in `NodeEndMsg::Perform()` always guaranteed to be safe?
+# Resolved Questions
+
+- Should this logic be extended to all of the other node notifications (`/n_go`,
+  `/n_end`, `/n_off`, `/n_on`, `/n_move`)?
+
+  No. These should remain as streamlined as possible. For complex server setups
+  the additional traffic can be detrimental to performance.
+

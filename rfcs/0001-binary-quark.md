@@ -19,6 +19,8 @@ Quark installation checks for the presences of this file. If it is present, is i
 
 Building requires the supercollider headers, so on first build the SC code is checked out locally with the version executing the installation. This location, along with platform information, is provided to the build script as environment variables.
 
+A working proof of concept for an installable quark with a build script: [ExampleBuildQuark](https://github.com/capocasa/ExampleBuildQuark)
+
 # Drawbacks
 
 1. Source distribution is considered to be infeasible by a majority of responders for at least on OSX and Windows, while the RFC author considers it reasonably easy at least on Linux.

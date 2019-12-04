@@ -1,4 +1,4 @@
-- Title: Distributing with binary components
+- Title: Distributing quarks with binary components
 - Date proposed: 2019-12-04
 - RFC PR: https://github.com/supercollider/rfcs/pull/7
 
@@ -32,7 +32,7 @@ A working proof of concept for an installable quark with a build script: [Exampl
 
   - If yes, does the cross-platform build process happen on a CI system?
     - If yes, do we have a volunteer to maintain such as system? 
-    - If yes, Shall other build options than C++ be supported, such as Rust or Nim, perhaps deferred?
+    - If yes, Shall other build options than C++ be supported, such as Rust or Nim, perhaps later?
     - If yes, can we create builds for each common type of executable on Linux? Different binary formats and 32/64 bit add up and require detection
     - If no, how is transpiling set up on each possible OS for a quark maintainer's system? Or should each quark be expected to be built by volunteers on all three systems?
   - If yes, should source distribution be used as a fallback mechanism?

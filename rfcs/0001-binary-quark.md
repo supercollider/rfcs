@@ -1,6 +1,6 @@
 - Title: Distributing with binary components
 - Date proposed: 2019-12-04
-- RFC PR: https://github.com/supercollider/rfcs/pull/7 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/7
 
 # Summary
 

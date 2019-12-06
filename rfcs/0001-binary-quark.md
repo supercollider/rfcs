@@ -4,22 +4,34 @@
 
 # Summary
 
-Quarks currently do not support C++ components (or other compiled languages), such as UGens, buffer fills, or server side commands. This RFC proposes a standardized method for this to work.
+Quarks currently do not support C++ components (or other compiled languages), such as UGens, buffer fills, or server side commands. This RFC proposes a means to support these.
 
 # Motivation
 
-Supporting C++ components would enable all 3rd party code distribution to be done with quarks, providing quark features such as automated installation and dependency management to binary extensions. It would potentially enable the retiring of the sc3-plugins repository in the future, simplifying extension installation by providing a single method of installation. Done well, a drastic improvement in easily available sounds and tools can be expected, as well as an increase in productivity.
+Supporting quarks with binary components enable all 3rd party code distribution to be done with quarks, providing quark features such as automated installation and dependency management to binary extensions. It would potentially enable the retiring of the sc3-plugins repository in the future, simplifying extension installation by providing a single method of installation. Done well, a drastic improvement in easily available sounds and tools can be expected, as well as an increase in productivity.
 
 
 # Specification
 
-A cross-platform shell script called quark.build is added to quarks with binary extensions, in the canonical case calling cmake and make. ¹ 
+Three phases of implementation or proposed in order to focus development on smaller chunks and prove their utility before moving to the next.
 
-Quark installation checks for the presences of this file. If it is present, is is executed after installation, displaying the results in the terminal, and noting success if the return code is 0, failure otherwise.
+## Core phase
 
-Building requires the supercollider headers, so on first build the SC code is checked out locally with the version executing the installation. This location, along with platform information, is provided to the build script as environment variables.
+*The goal of the core phase is to get a system ready that builds binary quarks for a group of early testers on different Linux systems*
 
-A working proof of concept for an installable quark with a build script: [ExampleBuildQuark](https://github.com/capocasa/ExampleBuildQuark)
+A quark called `binary` is created that can be depended on by quarks that wish to distribute binaries.
+
+The binary quark checks quarks for the presence of a CMakeLists.txt file, and executes a CMake build after installation if they do. Supercollider headers of an appropriate sclang version are downloaded before build as required. It is assumed that the quark maintainer will set any options to default to the value used for distribution.
+
+A proof of concept for an installable quark with a build script: [ExampleBuildQuark](https://github.com/capocasa/ExampleBuildQuark)
+
+## Expansion phase
+
+The build-from-source approach is evaluated in OSX, with the quark packaging system automatically prompting to install a dependency through the App Store, and automatically downloading another. This approach is evaluated by a group of initial testers on OSX. If it is found to be satisfactory, some newish users can also be exposed to the system. If it works well enough, with some help, this approach is decided to be used. If it does not work well enough, OSX binaries the build-approach for OSX is considered failed and binaries will be distributed during the following phase. 
+
+# Binary distribution phase
+
+A binary repository is created, and questions on where to host it who should have control, and who performs builds are answered. 32bit and 64bit binaries are transpiled from Linux and possibly OSX using a boilerplate CMakeLists.txt. If the expansion phase showed that source builds on OSX are a significant usability problem during the Expansion builds, and 64bit (or perhaps also 32bit or fat binaries) OSX binaries are added to Windows ones for binary distrubtion.
 
 # Drawbacks
 
@@ -28,19 +40,9 @@ A working proof of concept for an installable quark with a build script: [Exampl
 
 # Unresolved Questions
 
-- Shall binary quarks be distributed in binary form?
+- This plan of action attempts to reconcile all points raised in discussion for the end result. Has this been successful, or should further points be addressed?
 
-  - If yes, does the cross-platform build process happen on a CI system?
-    - If yes, do we have a volunteer to maintain such as system? 
-    - If yes, Shall other build options than C++ be supported, such as Rust or Nim, perhaps later?
-    - If yes, can we create builds for each common type of executable on Linux? Different binary formats and 32/64 bit add up and require detection
-    - If no, how is transpiling set up on each possible OS for a quark maintainer's system? Or should each quark be expected to be built by volunteers on all three systems?
-  - If yes, should source distribution be used as a fallback mechanism?
-  - If no, how is it ensured that installing build requirements is reasonably easy on OSX and Windows? To answer this question, other systems such as the Ruby Gem 'Nokogiri' should be investigated.
 
 Preliminary [discussion on the sc-dev mailing list](https://www.listarc.bham.ac.uk/lists/sc-dev/thrd10.html#59665)
 Seperate related [discussion on the sc-dev mailing list regarding the sc3-plugins repository](https://www.listarc.bham.ac.uk/lists/sc-dev/msg58832.html)
-
----
-¹ The initial draft used a `build.scd` in sclang as a build script, but some users may wish not to depend on sclang, and cross platform shell needs to be used anyway via systemCmd or similar, so there is no gain. 
 

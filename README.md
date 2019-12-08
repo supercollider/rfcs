@@ -6,6 +6,8 @@ RFCs start as pull requests here: https://github.com/supercollider/rfcs/pulls
 
 Once accepted, they can be found in this directory: https://github.com/supercollider/rfcs/tree/master/rfcs
 
+Here is a page listing ideas for future RFCs, and in-progress RFCs being currently worked on: https://github.com/supercollider/rfcs/wiki/Future-RFCs
+
 ## What does an RFC do?
 
 The RFC process is intended to bring focus and structure to discussions of important changes and new features in the SuperCollider project. It provides a space for sharing and collaborating on ideas and design documents, keeping community discussion organized and focused on the goal of reaching a decision.
@@ -35,6 +37,8 @@ The following do not need to go through an RFC:
 ### Step 0: Decide if you should file an RFC
 
 As an RFC author, it's best if you only have one RFC of yours open at any moment. This restriction is a guideline, but you are advised to be respectful of other contributors who would also like their RFCs to receive attention, and to be cognizant of the potential cost of spreading the community's attention thinly across a multitude of proposals.
+
+We have a page for jotting down ideas for future RFCs, as well as listing RFCs that are currently being worked on but not yet up for discussion: https://github.com/supercollider/rfcs/wiki/Future-RFCs
 
 ### Step 1: Fork this repository
 

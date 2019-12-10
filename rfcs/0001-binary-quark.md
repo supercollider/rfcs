@@ -4,7 +4,7 @@
 
 # Summary
 
-Quarks currently do not support C++ components (or other compiled languages), such as UGens, buffer fills, or server side commands. This RFC proposes a means to support these.
+Quarks currently do not support UGens, buffer fills, server side commands, which requires binary artifacts to be loaded by the scsynth or supernova servers. This RFC proposes to permit.
 
 # Motivation
 
@@ -13,49 +13,66 @@ Supporting quarks with binary components enable all 3rd party code distribution 
 
 # Specification
 
-Three phases of implementation or proposed in order to focus development on smaller chunks and prove their utility before moving to the next.
+A boilerplate example quark with cmake and travis scripts is provided and documented on the "Writing Quarks" guide.
 
-## 1. Core phase
+The boilerplate allows building quarks that have no special build requirements with minimal editing. All platforms that are supported by SuperCollider are enabled by default. Plugin authors are encouraged to build for all platforms unless the plugin is inherently platform specific. Platforms are specified in a configuration section at the top of the build script. Supernova builds are also enabled by default and can be manually disabled.
 
-*The goal of the core phase is to get a system ready that builds binary quarks for a group of early testers on different Linux systems*
+A travis CI environment is activated through github to automatically build on push. If the push was a tag with a semantic version number, a formal github release containing the builds is automatically created using the github API.
 
-A quark called `binary` is created that can be depended on by quarks that wish to distribute binaries.
+The Quark system checks for the presence of releases on install, downloads the appropriate release for the system, and places it within a folder in the app support directory alongside downloaded quarks, with the platform and intended scsynth/supernova version number as subdirectories. Then the directory symlinked (if supported) or copied into a "active-quarks" directory inside the extensions directory so they are picked up by servers on boot. When quark directories are modified, symlinks must be deleted and created as appropriate.
 
-The binary quark checks quarks for the presence of a CMakeLists.txt file, and executes a CMake build after installation if they do. Supercollider headers of an appropriate sclang version are downloaded before build as required. It is assumed that the quark maintainer will set any options to default to the value used for distribution.
+On executing an quark update, missing binary components are added. This can happen when quarks are transferred to a different platform, or sc is up/downgraded
 
-A proof of concept for an installable quark with a build script: [ExampleBuildQuark](https://github.com/capocasa/ExampleBuildQuark)
+## Requirements
 
-## 2. Expansion phase
+- Quarks with binary artifacts must be no more difficult to install than those without- ideally, users should not be required to know the difference
+- Especially, they must be installable on machines with no root access
+- They must be supported on all platforms where binary SuperCollider releases are provided, except where the nature of the quark precludes it
+- The build system must have as few dependencies as possible in addition to CMake
+- Impact on non-sclang quark systems must be as small as possible
 
-The build-from-source approach is evaluated in OSX, with the quark packaging system automatically prompting to install a dependency through the App Store, and automatically downloading another. This approach is evaluated by a group of initial testers on OSX. If it is found to be satisfactory, some newish users can also be exposed to the system. If it works well enough, with some help, this approach is decided to be used. If it does not work well enough, OSX binaries the build-approach for OSX is considered failed and binaries will be distributed during the following phase. 
+## Out of scope 
 
-# 3. Binary distribution phase
+The scope of this RFC is limited to distributing binary artifacts, and the minimal changes to the current quarks system required for that purpose. Changes that go further are out of scope, including: 
 
-A binary repository is created, and questions on where to host it who should have control, and who performs builds are answered. 32bit and 64bit binaries are transpiled from Linux and possibly OSX using a boilerplate CMakeLists.txt. If the expansion phase showed that source builds on OSX are a significant usability problem during the Expansion builds, and 64bit (or perhaps also 32bit or fat binaries) OSX binaries are added to Windows ones for binary distrubtion.
+- Improving dependency management
+- Improving quarks.txt loading behvaior
+- Directory-specific quark loading
+- Security improvements such as parsing the .quark file instead of executing it
+- Reducing dendencies, e.g. dropping dependency on git
+- Non-github repositories
 
-## Nitty gritty details
+## Deferred
 
-Some details were omitted from above for easier understanding:
+These remain within scope for discussion, but will likely not be part of an initial release.
 
-- The "secret sauce" from pure data's Deken that allows binary extensions to be distributed effectively is an automation of tagging the binary for its architecture, OS version, and exeutable format, in great detail (e.g. 10+ architecures). This proposal suggests to at attempt source distribution so CMake can do that. If source distribution doesn't pan out, then this should be ported to sclang from the pure data's lisp version, which is obviously much harder to get right than letting cmake handle it.
+- Assisted test tracking- developers are encouraged to test as many built platforms as possible and mark them tested, while others also may mark platforms tested. The Quark installer then displays whether a quark has been found working on the current system.
+- Assisted error reporting- errors should be reported via github issues
+- Automated source build to assist developers and users of embedded systems or exotic hardware
+- Support for languages other than C++ such as Faust, Nim, Rust - at release they will be only supported indirectly via intermediate C++ if applicable
 
-- Some improvements to quarks were suggested, such as dependencies by version and OS, as well as sclang-version-specific quark installations. These will be done in phase 1 as needed.
+## Rejected
 
-- Preparation for building from source on Linux involves installing a build package and cmake. On OSX, it involves using a terminal command to trigger installation of the xcode-command-line-tools package in the app store, as well as installing binary cmake. The latter can probably be automated by the quark system and placed outside the path so it doesn't conflict with anything on the machine, such as from homebrew, an OSX package system.
+These ideas have been considered and rejected
 
-- Since Nokogiri gave up on source builds on Windows, this proposal will too. It is still unclear how exactly a binary repository would work, and who would control it. It is also unclear who will do the builds- the package maintainer, another volunteer, or a CI system. The latter would be preferred by the RFC, if a volunteer can be found to maintain the CI system for windows builds. Github integration would be great. If builds are done by the package maintainer, github release would work. If it is to be done by a third party, then it is unclear where it could be efficiently uploaded.
-
-- Some kind of "confirmed working on OSX/Windows/Linux" feature would be nice, since package maintainers are unlikely to be able to test on three platforms. That would make it more obvious how well packages are tested. This would have to happen *after* phase 3 though.
+- Automated source build as primary method of distribution, because it is impossible for users without root access
+- Manual binary build by quark developers. It is possible with good tagging a la Pure Data's Deken, but too much burden on developers and bad security practice
+- Depending on platform specific package managers for library dependencies. Installing these package managers usually requires root access
 
 # Drawbacks
 
-This approach defers some questions to a later phase, however that seems hard to avoid given the scope is so large.
-
+- The automatic build system requires maintenance
+- Quark update is required after upgrading or switching platform or supercollider version
+- Manual build required for unsupported systems.
 
 # Unresolved Questions
 
-- This plan of action attempts to reconcile all points raised in discussion for the end result. Has this been successful, or should further points be addressed?
+- Should the binary quark system be implemented as part of supercollider proper, or be installable as a quark of its own that is depended on by quarks that require it?
+  - If part of supercollider, should servers be modified to load binary artifacts from the quark folders instead of 
+- Do administrators of systems without root access, such as at universities, prohibit installing binary artifacts as a non-root user?
 
+---
+Initial discussion on the sc-dev mailing list:
 
 Preliminary [discussion on the sc-dev mailing list](https://www.listarc.bham.ac.uk/lists/sc-dev/thrd10.html#59665)
 Seperate related [discussion on the sc-dev mailing list regarding the sc3-plugins repository](https://www.listarc.bham.ac.uk/lists/sc-dev/msg58832.html)

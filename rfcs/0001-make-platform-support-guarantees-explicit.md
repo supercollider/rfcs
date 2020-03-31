@@ -57,7 +57,7 @@ possible.
 The official minor release of SuperCollider is guaranteed to be compatible with:
 - major releases of Xcode (AppleClang), starting from 2 years prior to the minor release date of SuperCollider
 - major releases of gcc, MSVC, and clang, 4 years
-- minor releases of Qt, 3 years
+- minor releases of Qt, 2 years
 
 Other libraries and tools which SuperCollider uses, but which do not have such guarantees, are:
 - Boost (see note below)
@@ -147,7 +147,7 @@ would be:
 - MSVC: 2017 (2017-03) - now on 2019
 - gcc: 6 (2017-04) - now on 9
 - clang: 4 (2017-03) - now on 10
-- Qt: 5.9 LTS (2017-05) - now on 5.14
+- Qt: 5.11 (2018-05) - now on 5.14
 
 For reference, the platforms currently (2020-03-31) available in our CI. I use the MSVC version numbers since Windows
 is pretty great about backward compatibility:

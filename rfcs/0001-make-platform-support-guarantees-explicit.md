@@ -26,127 +26,134 @@ of legitimacy and forethought.
 
 ## Support guarantees
 
-Here is a proposed wording:
+### Platforms
 
-> SuperCollider makes a best-effort attempt to provide support for software released in the last N years, including
-> operating systems, compilers, and other software required to build the project.
->
-> For software released more than N years ago, no support is guaranteed, nor will any additional development effort be
-> expended to test or support such software. However, developers will not break compatibility needlessly, and will
-> attempt to maintain support if there is no additional cost for doing so.
->
-> Support will not be broken in patch releases; only major and minor releases.
->
-> A "software release" is considered to be a major, non-patch version of an operating system or other software. For
-> instance, macOS 10.12 Sierra was first released September 20, 2016. SuperCollider's support guarantee for macOS
-> 10.12 Sierra extends until September 20, 20xx, and not until N years after July 19, 2017 (the first release of macOS
-> 10.12.6), nor N years after September 26, 2019 (the most recent release of macOS 10.12.6). Similarly, only major
-> releases of MSVC, LLVM CLang, and GCC, and minor releases of CMake are considered under this policy.
+SuperCollider makes some guarantees about the platforms it can be used on. Anything that breaks these platform
+support guarantees should be fixed as soon as possible.
 
-Since it is typically much easier to upgrade operating systems than software, I suggest N=3 for operating systems and
-N=2 for other software. In any case, I strongly suggest N<=4.
+The official minor release (pre-compiled binaries on macOS and Windows, and a built-from-source binary on Linuxes) of
+SuperCollider is guaranteed to be compatible with major releases of:
+- macOS, starting from 2 years prior to minor release date of SuperCollider
+- Windows, 4 years
+- Linux, 4 years
+
+"Compatibility" on Linux means there exists some toolchain easily obtainable -- preferably through the standard
+package manager of that plaform, except when cross-compiling -- that can build SuperCollider.
+
+The supported set of Linux distributions includes at least Arch, Debian, Ubuntu, Fedora, and Raspbian (Raspberry Pi
+Debian).
+
+Additionally, it should be possible and easy to build SuperCollider for these embedded platforms:
+- Raspberry Pi
+- BeagleBone Black
+- in the future, Bela
+
+### Toolchains
+
+SuperCollider also makes some guarantees about the toolchains (libraries, compilers, and other third-party software)
+that can be used to compile it. Anything that breaks these toolchain support guarantees should be fixed as soon as
+possible.
+
+The official minor release of SuperCollider is guaranteed to be compatible with:
+- major releases of Xcode (AppleClang), starting from 2 years prior to the minor release date of SuperCollider
+- major releases of gcc, MSVC, and clang, 4 years
+- minor releases of Qt, 3 years
+
+Other libraries and tools which SuperCollider uses, but which do not have such guarantees, are:
+- Boost (see note below)
+- CMake
+- libsndfile
+- libjack
+- fftw
+- git
+- ALSA
+- libudev
+- libreadline
+- Asio SDK
+- NSIS
+- libyaml-cpp
+
+This is either because a compatible version is included in the SuperCollider repository itself, or because the
+library is relatively stable and so no additional compatibility requirements are necessary, or because there have
+been few compatibility issues with the library. If needed, support guarantees can be made for these libraries as well.
+
+As much as possible, SuperCollider should support building with the latest release of Boost, and the version packaged
+in the source tree should be updated reasonably soon after a release.
+
+### Patch releases
+
+To the extent that it is possible and practical, the supported platforms and toolchains for a minor SuperCollider
+release should also be supported by patch releases within that same minor release. For example, if SuperCollider
+3.11.0 supports Debian Buster, so should 3.11.1, 3.11.2, and so on.
 
 ## Documentation
 
-We must also document exactly which versions of software are supported in each release.
+When documenting these guarantees, it is important to note four distinct levels of support:
+1. guaranteed supported, CI-checked platforms and toolchains
+2. guaranteed supported, non-CI-checked platforms and toolchains
+3. not guaranteed supported, known-to-work platforms and toolchains
+4. not guaranteed supported, not known-to-work platforms and toolchains
+
+The following information should be clearly documented:
+- (1-3) from the above list
+- any support that is broken between releases
+- the platform and toolchain guarantees themselves
+- the platforms supported by release artifacts
+
+Support guarantees will be documented in the following places:
+- SuperCollider website download page
+- README
+- GitHub release notes
+- markdown release notes (CHANGELOG.md)
+- schelp release notes ("New in Version 3.x")
 
 ## Enforcement
 
-We must also add continuous integration jobs to enforce these guarantees. Note that Travis now supports Windows, so we
-may be able to switch to them and add more Windows builds without it heavily affecting our overall CI run time.
+These support guarantees should be enforced through a robust set of CI jobs, and through encouraging and being
+responsive to user testing.
+
+# Implementation
+
+Implementation of this RFC consists of the following:
+- adding CI jobs as outlined in "Enforcement" above
+- adopting documentation as outlined in "Documentation" above
+- notfiying the development and user communities of these guarantees
 
 # Drawbacks
 
 None I can think of at present, everyone benefits from greater transparency and accountability.
 
-# Unresolved Questions
+# TODO
 
-Perhaps N should be chosen per platform. As we've seen, macOS moves much more quickly in breaking compatibility than
-Windows or Linuxes, and in fact appears to actively disincentivizes supporting older platforms.
+- What to document where?
+- Linux support reasonable? Fedora seems like a lot of versions ago
+- Windows support reasonable? Maybe we should base platform support off when Windows maintenance period ends since we
+  already go back to 7 or Vista.
+- Boost note reasonable (ask David R)?
 
-Similarly, perhaps it could also be chosen on the basis of the software's own release schedule and
-backwards-compatibility habits.
+# Reference release dates and CI info
 
-# Reference release dates
+For reference, the supported versions of the toolchains and platforms listed above for today's date (2020-03-31)
+would be:
 
-For reference, release dates of various software used for SuperCollider, by version:
+- macOS: 10.14 (2018-09)
+- windows: Windows 10 Version 1607 (2016-08)
+- Debian/Raspbian: 9.0 Stretch (2017-06)
+- Ubuntu: Xenial 16.04 LTS (2016-04)
+- Fedora: Fedora 25 (2016-11)
+- Arch: [rolling release]
 
-### MacOS
+- Xcode: 10 (2018-06) - now on 11
+- MSVC: 2017 (2017-03) - now on 2019
+- gcc: 6 (2017-04) - now on 9
+- clang: 4 (2017-03) - now on 10
+- Qt: 5.9 LTS (2017-05) - now on 5.14
 
-MacOS 10.10: October 2014
+For reference, the platforms currently (2020-03-31) available in our CI. I use the MSVC version numbers since Windows
+is pretty great about backward compatibility:
+- Travis Ubuntu: 12.04 to 18.04
+- Travis macOS: 10.10 to 10.14 (Xcode 6 to 11)
+- Appveyor MSVC: 2013 to 2019
 
-MacOS 10.11: September 2015
-
-MacOS 10.12: September 2016
-
-MacOS 10.13: September 2017
-
-MacOS 10.14: September 2018
-
-### Xcode
-
-Xcode 8.0: September 2016
-
-Xcode 9.0: September 2017
-
-Xcode 10.0: September 2018
-
-Xcode 11.0: September 2019
-
-### GCC
-
-gcc 6.1: April 2016
-
-gcc 7.1: May 2017
-
-gcc 8.1: May 2018
-
-gcc 9.1: May 2019
-
-### clang
-
-clang 4: March 2017
-
-clang 5: September 2017
-
-clang 6: March 2018
-
-clang 7: September 2018
-
-clang 8: March 2019
-
-clang 9: September 2019
-
-### MSVC
-
-MSVC 2015: July 2015
-
-MSVC 2017: March 2017
-
-MSVC 2019: April 2019
-
-### Qt
-
-Qt 5.7: June 2016
-
-Qt 5.8: January 2017
-
-Qt 5.9: May 2017
-
-Qt 5.10: November 2017
-
-Qt 5.11: May 2018
-
-Qt 5.12: December 2018
-
-Qt 5.13: June 2019
-
-### Windows
-
-Windows 7: October 2009
-
-Windows 8: October 2012
-
-Windows 8.1: August 2013
-
-Windows 10: July 2015
+And gcc/clang toolchains are pretty easily available. So it should be possible to support these guarantees with CI,
+with the exception of Catalina in Travis (hopefully resolved soon) and other Linux distributions.

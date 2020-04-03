@@ -30,9 +30,9 @@ The development community for SuperCollider has agreed on some guarantees about 
 toolchains. Anything that breaks these guarantees should be fixed as soon as possible.
 
 These guarantees are given as both a number of years and number of releases. Whichever period is longer applies. For
-instance, macOS is supported for 2 years and 2 minor releases. That means that any new minor version of macOS
-released in the last 2 years is supported, _and_ that the last two minor versions of macOS are always supported. At
-present (2020-04-02) that would be macOS 10.14 Mojave and 10.15 Catalina.
+instance, macOS is supported for 2 years and 2 major releases. That means that any new version of macOS released in
+the last 2 years is supported, _and_ that the last two major releases of macOS are always supported. At
+present (2020-04-02) that would be macOS Mojave 10.14 and Catalina 10.15.
 
 These guarantees are for the official releases published on GitHub and the supercollider.github.io website
 (pre-compiled binaries on macOS and Windows, and a built-from-source binary on Linuxes).
@@ -40,8 +40,8 @@ These guarantees are for the official releases published on GitHub and the super
 ### Platforms
 
 The following platforms are supported:
-- macOS: 2 years, 2 minor releases
-- Windows: 4 years, 4 releases
+- macOS: 2 years, 2 major releases (i.e. Mojave 10.14, Catalina 10.15)
+- Windows: 4 years, 4 major updates
 - Ubuntu: 4 years, 2 LTS releases
 - Debian: 4 years, 2 major releases
 - Fedora: latest release
@@ -139,7 +139,7 @@ None I can think of at present, everyone benefits from greater transparency and 
 For reference, the supported versions of the toolchains and platforms listed above for today's date (2020-03-31)
 would be:
 
-- macOS: 10.14 (2018-09)
+- macOS: Mojave 10.14 (2018-09)
 - Windows: Windows 10 Version 1607 (2016-08)
 - Debian/Raspbian: 9.0 Stretch (2017-06)
 - Ubuntu: Xenial 16.04 LTS (2016-04)

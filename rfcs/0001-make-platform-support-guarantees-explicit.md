@@ -26,41 +26,48 @@ of legitimacy and forethought.
 
 ## Support guarantees
 
+The development community for SuperCollider has agreed on some guarantees about support for various platforms and
+toolchains. Anything that breaks these guarantees should be fixed as soon as possible.
+
+These guarantees are given as both a number of years and number of releases. Whichever period is longer applies. For
+instance, macOS is supported for 2 years and 2 minor releases. That means that any new minor version of macOS
+released in the last 2 years is supported, _and_ that the last two minor versions of macOS are always supported. At
+present (2020-04-02) that would be macOS 10.14 Mojave and 10.15 Catalina.
+
+These guarantees are for the official releases published on GitHub and the supercollider.github.io website
+(pre-compiled binaries on macOS and Windows, and a built-from-source binary on Linuxes).
+
 ### Platforms
 
-SuperCollider makes some guarantees about the platforms it can be used on. Anything that breaks these platform
-support guarantees should be fixed as soon as possible.
+The following platforms are supported:
+- macOS: 2 years, 2 minor releases
+- Windows: 4 years, 4 releases
+- Ubuntu: 4 years, 2 LTS releases
+- Debian: 4 years, 2 major releases
+- Fedora: latest release
+- Arch Linux: latest release
+- Raspberry Pi: latest release
+- BeagleBone Black: latest release
 
-The official minor release (pre-compiled binaries on macOS and Windows, and a built-from-source binary on Linuxes) of
-SuperCollider is guaranteed to be compatible with major releases of:
-- macOS, starting from 2 years prior to minor release date of SuperCollider
-- Windows, 4 years
-- Linux, 4 years
-
-"Compatibility" on Linux means there exists some toolchain easily obtainable -- preferably through the standard
+"Compatibility" on Linuxes means there exists some toolchain easily obtainable -- preferably through the standard
 package manager of that plaform, except when cross-compiling -- that can build SuperCollider.
-
-The supported set of Linux distributions includes at least Arch, Debian, Ubuntu, Fedora, and Raspbian (Raspberry Pi
-Debian).
-
-Additionally, it should be possible and easy to build SuperCollider for these embedded platforms:
-- Raspberry Pi
-- BeagleBone Black
-- in the future, Bela
 
 ### Toolchains
 
 SuperCollider also makes some guarantees about the toolchains (libraries, compilers, and other third-party software)
-that can be used to compile it. Anything that breaks these toolchain support guarantees should be fixed as soon as
-possible.
+that can be used to compile it.
 
 The official minor release of SuperCollider is guaranteed to be compatible with:
-- major releases of Xcode (AppleClang), starting from 2 years prior to the minor release date of SuperCollider
-- major releases of gcc, MSVC, and clang, 4 years
-- minor releases of Qt, 2 years
+- Xcode: 2 years, 2 major releases
+- gcc: 4 years, 4 major releases
+- clang: 4 years, 4 major releases
+- MSVC: 4 years, 2 major releases
+- Qt: 2 years, 1 LTS release
 
-Other libraries and tools which SuperCollider uses, but which do not have such guarantees, are:
-- Boost (see note below)
+As much as possible, SuperCollider should support building with the latest release of Boost, and the version packaged
+in the source tree should be updated reasonably soon after a release.
+
+Other libraries and tools which SuperCollider uses:
 - CMake
 - libsndfile
 - libjack
@@ -73,12 +80,12 @@ Other libraries and tools which SuperCollider uses, but which do not have such g
 - NSIS
 - libyaml-cpp
 
-This is either because a compatible version is included in the SuperCollider repository itself, or because the
-library is relatively stable and so no additional compatibility requirements are necessary, or because there have
-been few compatibility issues with the library. If needed, support guarantees can be made for these libraries as well.
+These are not given guarantees either because:
+- a compatible version is included in the SuperCollider repository itself, or
+- the library is relatively stable and so no additional compatibility requirements are necessary, or
+- there have been few compatibility issues with the library.
 
-As much as possible, SuperCollider should support building with the latest release of Boost, and the version packaged
-in the source tree should be updated reasonably soon after a release.
+Support guarantees can be added if needed.
 
 ### Patch releases
 
@@ -95,9 +102,9 @@ When documenting these guarantees, it is important to note four distinct levels 
 4. not guaranteed supported, not known-to-work platforms and toolchains
 
 The following information should be clearly documented:
+- these platform and toolchain guarantees themselves
 - (1-3) from the above list
 - any support that is broken between releases
-- the platform and toolchain guarantees themselves
 - the platforms supported by release artifacts
 
 Support guarantees will be documented in the following places:
@@ -126,10 +133,6 @@ None I can think of at present, everyone benefits from greater transparency and 
 # TODO
 
 - What to document where?
-- Linux support reasonable? Fedora seems like a lot of versions ago
-- Windows support reasonable? Maybe we should base platform support off when Windows maintenance period ends since we
-  already go back to 7 or Vista.
-- Boost note reasonable (ask David R)?
 
 # Reference release dates and CI info
 
@@ -137,10 +140,10 @@ For reference, the supported versions of the toolchains and platforms listed abo
 would be:
 
 - macOS: 10.14 (2018-09)
-- windows: Windows 10 Version 1607 (2016-08)
+- Windows: Windows 10 Version 1607 (2016-08)
 - Debian/Raspbian: 9.0 Stretch (2017-06)
 - Ubuntu: Xenial 16.04 LTS (2016-04)
-- Fedora: Fedora 25 (2016-11)
+- Fedora: Fedora 31 (2019-10)
 - Arch: [rolling release]
 
 - Xcode: 10 (2018-06) - now on 11

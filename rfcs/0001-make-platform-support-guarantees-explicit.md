@@ -46,11 +46,11 @@ The following platforms are supported:
 - Debian: 4 years, 2 major releases
 - Fedora: latest release
 - Arch Linux: latest release
-- Raspberry Pi: latest release
-- BeagleBone Black: latest release
+- Raspberry Pi (Raspbian): latest release
+- BeagleBone Black (Debian): latest release
 
 "Compatibility" on Linuxes means there exists some toolchain easily obtainable -- preferably through the standard
-package manager of that plaform, except when cross-compiling -- that can build SuperCollider.
+package manager of that plaform, or the one used for cross-compiling -- that can build SuperCollider.
 
 ### Toolchains
 

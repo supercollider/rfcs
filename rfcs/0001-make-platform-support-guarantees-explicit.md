@@ -29,6 +29,17 @@ of legitimacy and forethought.
 The development community for SuperCollider has agreed on some guarantees about support for various platforms and
 toolchains. Anything that breaks these guarantees should be fixed as soon as possible.
 
+These guarantees should not be taken as an indication that we do not intend to support older platforms. On the contrary,
+care should be taken not to lose support for platforms with which SuperCollider is currently compatible, unless there
+are good reasons for doing so, and patches to add or restore support for any platform are welcome.
+
+Reasons to drop support include:
+- newer versions of tools and libraries have dropped support
+- security issues
+- the OS vendor itself has dropped support (for example, in Windows or macOS SDKs)
+- significant features require a feature not available on an older platform, and there is no practial way to make the
+  feature configurable
+
 These guarantees are given as both a number of years and number of releases. Whichever period is longer applies. For
 instance, macOS is supported for 2 years and 2 major releases. That means that any new version of macOS released in
 the last 2 years is supported, _and_ that the last two major releases of macOS are always supported. At

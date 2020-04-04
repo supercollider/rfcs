@@ -120,6 +120,7 @@ The following information should be clearly documented:
 
 Support guarantees will be documented in the following places:
 - SuperCollider website download page
+- SuperCollider GitHub Wiki
 - README
 - GitHub release notes
 - markdown release notes (CHANGELOG.md)

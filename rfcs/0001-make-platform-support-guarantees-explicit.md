@@ -106,25 +106,27 @@ release should also be supported by patch releases within that same minor releas
 
 ## Documentation
 
-When documenting these guarantees, it is important to note four distinct levels of support:
-1. guaranteed supported, CI-checked platforms and toolchains
-2. guaranteed supported, non-CI-checked platforms and toolchains
-3. not guaranteed supported, known-to-work platforms and toolchains
-4. not guaranteed supported, not known-to-work platforms and toolchains
+Both these guarantees and the specific tools and platforms supported by a release should be clearly documented in
+several places.
 
-The following information should be clearly documented:
-- these platform and toolchain guarantees themselves
-- (1-3) from the above list
-- any support that is broken between releases
-- the platforms supported by release artifacts
+When documenting these guarantees, it is important to note three distinct levels of support:
+1. guaranteed supported, CI-checked platforms and toolchains ("CI-guaranteed")
+2. guaranteed supported, non-CI-checked platforms and toolchains ("guaranteed")
+3. not guaranteed supported, known-to-work platforms and toolchains ("known-to-work")
 
-Support guarantees will be documented in the following places:
-- SuperCollider website download page
-- SuperCollider GitHub Wiki
-- README
-- GitHub release notes
-- markdown release notes (CHANGELOG.md)
-- schelp release notes ("New in Version 3.x")
+"known-to-work" support relies on gathering information from the SuperCollider community as well as noting any dropped
+support when libraries are updated.
+
+Documentation locations:
+- SuperCollider project Wiki: create a new page which lists these guarantees.
+- SuperCollider website download page: note all known-to-work platform versions (not toolchains).
+- README.md: note and distinguish all CI-guaranteed, guaranteed, and known-to-work platforms and toolchains. add a link
+  to the Wiki page.
+- CHANGELOG.md: for the first release after this document goes into effect, include the same information as in the
+  README. afterward, note any changes in support.
+- GitHub release notes: note all known-to-work platform versions (not toolchains) and any changes in support.
+- .schelp release notes ("News in Version 3.x"): same as CHANGELOG.md.
+- release instructions: add a checklist item to review support status before a beta or rc.
 
 ## Enforcement
 
@@ -134,17 +136,13 @@ responsive to user testing.
 # Implementation
 
 Implementation of this RFC consists of the following:
-- adding CI jobs as outlined in "Enforcement" above
-- adopting documentation as outlined in "Documentation" above
-- notfiying the development and user communities of these guarantees
+- add CI jobs as outlined in "Enforcement" above
+- gather an approximate list of known-to-work platforms and toolchains
+- add documentation as outlined in "Documentation" above
 
 # Drawbacks
 
 None I can think of at present, everyone benefits from greater transparency and accountability.
-
-# TODO
-
-- What to document where?
 
 # Reference release dates and CI info
 

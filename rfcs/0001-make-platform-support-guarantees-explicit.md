@@ -158,7 +158,7 @@ would be:
 
 - Xcode: 10 (2018-06) - now on 11
 - MSVC: 2017 (2017-03) - now on 2019
-- gcc: 6 (2017-04) - now on 9
+- gcc: 7 (2017-05) - now on 9
 - clang: 4 (2017-03) - now on 10
 - Qt: 5.11 (2018-05) - now on 5.14
 

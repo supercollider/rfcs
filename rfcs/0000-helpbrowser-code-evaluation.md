@@ -6,7 +6,7 @@
 
 Assessing and discussing the status of Help Browser implementations, especially about code evaluation, also regarding WebSockets.
 
-I made a pull request (#4883) that has all my proposed fixes/changes, which I explain below.
+I made a pull request ([#4883](https://github.com/supercollider/supercollider/pull/4883)) that has all my proposed fixes/changes, which I explain below.
 
 Summary:
 - rely on javascript for code selection in webviews: webviews' clients (scide or sclang) get code from the runJavaScript callback. This means WebView shouldn't have its own implementation of anything "interpret".
@@ -19,16 +19,16 @@ Summary:
 We have currently three ways of accessing the Help Browser:
 - The Help Browser Widget
 - HelpBrowser class (built on QWebView)
-- QWebView class (see #4000)
+- QWebView class (see [#4000](https://github.com/supercollider/supercollider/issues/4000))
 - (well, you can also open an external browser and find HelpDocs on the internet)
 
 And two communication methods between sc(lang/ide) and them:
 - Javascript Functions/Callbacks
 - WebSockets
 
-This RFC is to collect thoughts and issues with current implementations and to propose and discuss changes and fixes, explaining my pull request #4883.
+This RFC is to collect thoughts and issues with current implementations and to propose and discuss changes and fixes, explaining my pull request [#4883](https://github.com/supercollider/supercollider/pull/4883).
 
-## Shall we drop webview code execution? (discussion at #4000)
+## Shall we drop webview code execution? (discussion at [#4000](https://github.com/supercollider/supercollider/issues/4000))
 - duplication: we need to maintain two separate code selection mechanisms, one for Documents and the other for WebViews.
 - "ideology": SC is not a browser, but Max/PD have interactive help systems
 - this feature is felt as very important by users (especially for teachers and beginners?)
@@ -44,11 +44,11 @@ My personal opinion is that this feature provides a nicer experience when browsi
 # Specification
 
 ## Code Evaluation Issues
-- #4542 (shift-enter doesn't eval)
+- [#4542](https://github.com/supercollider/supercollider/issues/4542) (shift-enter doesn't eval)
 This is because Shift-Enter keypresses are eaten by the web page's input field.
-- #4000 (can't evaluate code)
+- [#4000](https://github.com/supercollider/supercollider/issues/4000) (can't evaluate code)
 As far as I see, javascript callbacks implementation for WebView is all broken.
-- #656 (step forward doesn't work)
+- [#656](https://github.com/supercollider/supercollider/issues/656) (step forward doesn't work)
 This requires a way to send this preference to the web pages (not addressed in this RFC/PR)
 
 ## Duplication
@@ -73,7 +73,7 @@ Furthermore, we could have HelpBrowser Widget using QcWebView as well, so that w
 ## WebSockets:
 A WebSocket is currently used only in the Help widget, to tell sc to call a javascript function (it looks like a workaround for the Shift+Enter issue). This should just be done by sc when the corresponding shortcut is pressed.
 
-I think it's overkill to implement websockets where a simple javascript function/callback can (and actually does the) work. On the other hand, websocket support would be an useful feature to add to sc, just not maybe for the purpose discussed here (see #4534).
+I think it's overkill to implement websockets where a simple javascript function/callback can (and actually does the) work. On the other hand, websocket support would be an useful feature to add to sc, just not maybe for the purpose discussed here (see [#4534](https://github.com/supercollider/supercollider/issues/4534)).
 As for themes sharing with help docs (for HelpBrowser widget), my personal take is that it would be better to migrate to css themes, that could be shared directly with help pages, just reloading the page on changes (but I haven't look into this in detail yet).
 
 ## KeyPresses:

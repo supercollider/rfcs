@@ -45,10 +45,13 @@ My personal opinion is that this feature provides a nicer experience when browsi
 
 ## Code Evaluation Issues
 - [#4542](https://github.com/supercollider/supercollider/issues/4542) (shift-enter doesn't eval)
+
 This is because Shift-Enter keypresses are eaten by the web page's input field.
 - [#4000](https://github.com/supercollider/supercollider/issues/4000) (can't evaluate code)
+
 As far as I see, javascript callbacks implementation for WebView is all broken.
 - [#656](https://github.com/supercollider/supercollider/issues/656) (step forward doesn't work)
+
 This requires a way to send this preference to the web pages (not addressed in this RFC/PR)
 
 ## Duplication
@@ -106,4 +109,4 @@ I added a copy button to every code textarea in help files. Their look is debata
 
 - I would benefit from help to best figure out the ShortcutOverride/KeyPress issue.
 - javascript callback with QVariant results
-- Copy button icon. It's from FontAwesome: they release under attribution requirement. How do we do that? (if we want to do that)
+- Copy button: the icon I used is from FontAwesome, and they release under attribution requirement. How do we do that? (if we want to do that)

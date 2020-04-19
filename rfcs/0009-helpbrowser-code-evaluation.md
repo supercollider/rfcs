@@ -1,6 +1,6 @@
 - Title: Help Browser(s) Code Evaluation and WebSockets
 - Date proposed: 2020-19-04
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/9
 
 # Summary
 

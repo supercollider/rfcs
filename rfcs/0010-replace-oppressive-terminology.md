@@ -5,7 +5,7 @@
 # Summary
 
 Replace oppressive terminology with more accurate alternatives across the SuperCollider organization. In particular,
-avoid use of "master/slave", "blacklist/whitelist", and use gender-neutral language.
+switch all 'master' branches to 'main', avoid use of "master/slave", "blacklist/whitelist", and use gender-neutral language.
 
 # Motivation
 

@@ -1,6 +1,6 @@
 - Title: PulseAudio backend for Linux
 - Date proposed: 2020-07-03
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0011
 
 # Summary
 

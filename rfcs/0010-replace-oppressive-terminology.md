@@ -47,7 +47,10 @@ We should:
 - Use the neuter “they” as the singular pronoun and
 - Reflect on our use of metaphors generally.
 
-These changes should be made across all SuperCollider repositories and documentation.
+These changes should be made across all SuperCollider organization (github.com/supercollider) repositories and documentation.
+
+These changes do not impact repositorities in the supercollider-quarks organization. If or when such changes are to be
+made, they will be addressed by a new RFC.
 
 ## Impact
 

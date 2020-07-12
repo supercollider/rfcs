@@ -24,6 +24,8 @@ The idea is to implement a PulseAudio backend for Linux. The PR for the technica
 
 The backend choice will be done at build time, not runtime, as it is done currently for the other backends.
 
+This PulseAudio backend will be implemented using RtAudio, which provides a nice C++ API, which is simple to use and maintain. For more info see here: https://www.music.mcgill.ca/~gary/rtaudio/.
+
 The audio device selection will be done in the System's control panel / PulseAudio server software, following PulseAudio conventions. We have tested this in a system with multiple audio devices, and this allows the audio device to be changed at runtime from the PulseAudio control application. No need to reboot the SC server or anything. This brings the use model closer to what people using PulseAudio are used to, which I believe is important.
 
 At the moment I have working code in the PR described above, which has been tested in a couple of different systems, so it is mature enough for people to start giving it a proper try and give feedback about their specific experience. 

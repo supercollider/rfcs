@@ -49,4 +49,23 @@ I do not see any obvious drawbacks, since the default backend in Linux will cont
 # Unresolved Questions
 
 - Perhaps there are language side changes required, but this has not been identified yet. From what I can see, the data is getting to the driver code, and we can access things like the sample rate, samples per block, device name, channel configuration, etc.
-- Build time vs Launch time selection of the backend? Both have pros and cons. 
+- Build time vs Launch time selection of the backend? Both have pros and cons.
+
+## How to select the backend
+### Build time selection of backend
+#### Pros
+- Easier to implement
+- Harder to launch the wrong version
+- Clear separation between pulseaudio and jack backends
+
+#### Cons
+- Will probably require a couple of packages in the distribution to select which one (supercollider / supercollider-pulseaudio) - this is potentially a big deal
+
+### Launch time selection of backend (assuming the selection is done through an environment variable)
+#### Pros
+- No need to have potentially multiple packages
+- More flexibility to change backends without having to install different packages
+- Not too difficult to implement if the selection is done with an environment variable
+
+#### Cons
+- More complex implementation

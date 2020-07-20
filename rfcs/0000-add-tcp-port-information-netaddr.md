@@ -4,7 +4,6 @@
 
 # Summary
 
-Short description, 1-2 sentences.
 Currently it is not possible to directly access an open TCP socket from sclang. This RFC proposes a way to access the metadata of the socket created when calling NetAddr.connect method so the user can listen to messages coming back from that socket.
 
 # Motivation

@@ -1,6 +1,6 @@
 - Title: Add TCP port information to NetAddr
 - Date proposed: 2020-07-20
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0012
 
 # Summary
 

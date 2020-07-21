@@ -69,3 +69,28 @@ I do not see any obvious drawbacks, since the default backend in Linux will cont
 
 #### Cons
 - More complex implementation
+
+
+## RtAudio version / vendoring / ...
+There are at least 2 options regarding how to pick up the RtAudio version. One is to use the one provided by the system. Another is to include one on our own.
+Is there some way to use the RtAudio library directly in our project without having to worry about devendoring?
+### System wide RtAudio provided by distribution
+#### Pros
+- No need to do anything on our side, apart from linking to it
+- No need for devendoring
+- Very easy to manage
+
+#### Cons
+- Slower uptake of enhancements in RtAudio
+- Possibly different PulseAudio behaviour in different Linux distributions that have different versions of the RtAudio libs
+
+### Use our own RtAudio
+#### Pros
+- Can take the RtAudio enhancements as soon as they are ready and tested
+- More consistent PulseAudio behaviour, that does not depend on system wide RtAudio library
+
+#### Cons
+- Need to instantiate at least the 2 RtAudio files within our project (or add as a new submodule)
+- Requires specific handling for devendoring, which seems to be quite a lot of work
+
+

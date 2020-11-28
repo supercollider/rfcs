@@ -40,7 +40,7 @@ occurs. That trade-off is acceptable for the purposes of unit testing.
 
 # Specification
 
-The new `/s_query` command should return a `/s_query.reply` response with the
+The new `/s_query` command should return a `/s_info` response with the
 following format.
 
 ```
@@ -51,6 +51,9 @@ N * control number:
     str: the control name
     int/str: the control value or bus mapping symbol
 ```
+
+The `/s_query` / `/s_info` naming matches the existing `/n_query` / `n_info`
+and `/b_query` / `/b_info` requests and responses.
 
 The response need only be sent to the originating client, unlike `/n_info`
 which is broadcast to all clients.

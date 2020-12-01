@@ -5,7 +5,7 @@
 
 # Summary
 
-We should introduct a new command, `/s_query`, to allow retrieving both the
+We should introduce a new command, `/s_query`, to allow retrieving both the
 SynthDef name and the names and current values of a Synth.
 
 # Motivation

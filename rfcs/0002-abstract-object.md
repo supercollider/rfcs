@@ -20,7 +20,7 @@ Because of its minimal interface, we can use it as a superclass for a broad vari
   - reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once)
   - simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
 - **Prototype objects** whose methods are entries in a dictionary
-  - they are equivalent to any other object ans thus fully integrate (any method can be defined dynamically, not only new names)
+  - they are equivalent to any other object and thus fully integrate (any method can be defined dynamically, not only those with new names)
   - current prototype objects using dictionaries are unsafe (a class extension to any class above Dictionary may break code)
 - **Algebraic objects** and other features
   - lazy objects that construct a call tree instead of immediately executing the received calls.
@@ -57,39 +57,41 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta_AbstractObject`. This is possible, but not necessary, because the number of class methods and class variables is very small.
 
 
-## Optimisations
+## Suggested changes in primitives for optimization and integration
 
 1. An optional, but desirable optimization is a primitive that forwards a method to another object (see comment under Motivation)
 2. For a fully transparent integration in sclang, the implementation of the `if` operator would have to handle a fallback: https://github.com/supercollider/supercollider/issues/3567
 
-This RFC is independent of these two optimisations.
+This RFC is independent of these two suggested changes.
 
 # Drawbacks
 
 The additional class needs to be explained and understood. Currently, I can see no technical drawbacks.
 
+If the class is used pervasively, the above changes in the primitives should be in place.
+
 Regarding future delegator subclasses of `AbstractObject`, it is not clear how to make forwarded keyword arguments work. The same issue exists in the current object prototyping method and it probably needs to be solved separately.
 
 # Unresolved Questions
 
-1. One question to be answered is whether this implementation has unintended consequences or complications in the backend, since it assumes `Object` to be the top end of the class hierarchy.
+1. One important question is whether this implementation has unintended consequences or complications in the backend, since it assumes `Object` to be the top end of the class hierarchy.
 
 2. It should be carefully discussed which methods from  `Object` should be kept in `AbstractObject`. Some of this is a trade-off between fluent integration and flexibility. For example, introspection methods are expected to work also in subclasses of abstract object, but each of these method are fixed and their names are not available for delegation. For example, should `.isNil`  return the nil-ness of the internal object or just false? Should `.class` return the class of the internal object?
 
 An example of what problems one can have in making an existing class, such as a database, compatible with the use of such delegators is here https://bugs.ruby-lang.org/attachments/7943
 
-In general, introspection and bookkeeping methods should be kept. They can still be overridden in subclasses if necessary and possible. Some of these methods (e.g. gcDumpGrey) are necessary for the system to work, they need to be kept to avoid larger modifications of the backend
+In general, introspection and bookkeeping methods should be kept. They can still be overridden in subclasses if necessary and possible. Some of these methods (e.g. `gcDumpGrey`) are necessary for the system to work, they need to be kept to avoid larger modifications of the backend.
 
-There are boundary cases, for which we should find a general reasoning: e.g.  `isKindOf` or `deepCopy`.
+There are boundary cases, for which we should find a general and clear reasoning: e.g.  `isKindOf` or `deepCopy`. The problem is not so much what to do, but how to communicate clearly the intuition behind it.
 
-Both class methods `*new` and `*newCopyArgs` are implemented by `AbstractObject`. The classvars should be better kept in `Object`:
+Both class methods `*new` and `*newCopyArgs` are implemented by `AbstractObject`. Should the classvars should be better kept in `Object`?
 ```
 classvar <dependantsDictionary, currentEnvironment, topEnvironment, <uniqueMethods;
 ```
 
 
-# Alternatives
+# Alternative Implementations
 
-There may be an alternative to adding a primitive for erasing (possibly multiple) entries in the method table. Then, any class could erase all methods that are not needed. 
+There may be an alternative to adding a primitive for erasing (possibly multiple) entries in the method table for all instances of an object at compile time. Then, any class could erase all methods that are not needed.
 
 It is unclear if this is a realistic option in the current method table layout.

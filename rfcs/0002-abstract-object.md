@@ -61,8 +61,9 @@ Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta
 
 1. An optional, but desirable optimization is a primitive that forwards a method to another object (see comment under Motivation)
 2. For a fully transparent integration in sclang, the implementation of the `if` operator would have to handle a fallback: https://github.com/supercollider/supercollider/issues/3567
+3. Probably a more difficult one: object prototypes would become even better integrated if the keyword `this` could be assigned to the prototype object programmatically. The experimental implementation uses a class called `This` that can be used in such a way, but it is another special case to be avoided.
 
-This RFC is independent of these two suggested changes.
+**This RFC is independent of these suggested changes.**
 
 # Drawbacks
 

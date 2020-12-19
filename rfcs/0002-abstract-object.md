@@ -51,9 +51,9 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 
 
 
-![Current structure of class kernel](images/supercollider-class-structure.jpg)
+![Current structure of class kernel](images/supercollider-class-structure.gif)
 
-![Suggested structure of class kernel](images/supercollider-class-structure-abstract-object.jpg)
+![Suggested structure of class kernel](images/supercollider-class-structure-abstract-object.gif)
 
 
 

@@ -15,17 +15,17 @@ Since many years, this has been part of the Ruby programming language, whose cla
 Because of its minimal interface, we can use it as a superclass for a broad variety of classes:
 
 - **Delegators** that receive method calls and forward them to an internal object.
--- add instance variables to any object at runtime (e.g. a dictionary that holds metadata)
--- override methods at runtime (e.g. a logger that records all methods that were called).
--- reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once).
--- simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
+  - add instance variables to any object at runtime (e.g. a dictionary that holds metadata)
+  - override methods at runtime (e.g. a logger that records all methods that were called).
+  - reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once).
+  - simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
 - **Prototype objects** whose methods are entries in a dictionary
--- fully integrate and are equivalent to any other object (any method can be defined dynamically, not only new names)
--- current prototype objects using dictionaries are unsafe (a class extension to any class above Dictionary may break code)
+  - fully integrate and are equivalent to any other object (any method can be defined dynamically, not only new names)
+  - current prototype objects using dictionaries are unsafe (a class extension to any class above Dictionary may break code)
 - **Algebraic objects** and other features
--- lazy objects that construct an AST instead of immediately executing the received calls.
--- method calls where each argument is informed that it will be passed to a given object
--- pluggable type systems, with a type signature for any method.
+  - lazy objects that construct an AST instead of immediately executing the received calls.
+  - method calls where each argument is informed that it will be passed to a given object
+  - pluggable type systems, with a type signature for any method.
 
 
 ## It solves some existing problems

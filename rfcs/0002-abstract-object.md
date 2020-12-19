@@ -51,7 +51,7 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 
 | Current structure of class kernel | Suggested structure of class kernel |
 | ----------- | ----------- |
-| <image src="images/supercollider-class-structure.gif" width=500 alt="Diagram of the current structure of class kernel"> | <image src="images/supercollider-class-structure-with-abstract-object.gif" width=500 alt="Diagram of the current structure of class kernel"> |
+| <image src="images/supercollider-class-structure.gif" width=400 alt="Diagram of the current structure of class kernel"> | <image src="images/supercollider-class-structure-with-abstract-object.gif" width=600 alt="Diagram of the current structure of class kernel"> |
 
 
 Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta_AbstractObject`. This is possible, but not necessary, because the number of class methods and class variables is very small.
@@ -59,9 +59,8 @@ Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta
 
 ## Optimisations
 
-An optional, but desirable optimization is a primitive that forwards a method to another object (see comment under Motivation)
-
-For a fully transparent integration in sclang, the implementation of the `if` operator would have to handle a fallback: https://github.com/supercollider/supercollider/issues/3567
+1. An optional, but desirable optimization is a primitive that forwards a method to another object (see comment under Motivation)
+2. For a fully transparent integration in sclang, the implementation of the `if` operator would have to handle a fallback: https://github.com/supercollider/supercollider/issues/3567
 
 This RFC is independent of these two optimisations.
 
@@ -69,7 +68,7 @@ This RFC is independent of these two optimisations.
 
 The additional class needs to be explained and understood. Currently, I can see no technical drawbacks.
 
-Regarding delegator subclasses, it is not clear how to make forwarded keyword arguments work.
+Regarding future delegator subclasses of `AbstractObject`, it is not clear how to make forwarded keyword arguments work. The same issue exists in the current object prototyping method and it probably needs to be solved separately.
 
 # Unresolved Questions
 
@@ -83,7 +82,14 @@ In general, introspection and bookkeeping methods should be kept. They can still
 
 There are boundary cases, for which we should find a general reasoning: e.g.  `isKindOf` or `deepCopy`.
 
+Both class methods `*new` and `*newCopyArgs` are implemented by `AbstractObject`. The classvars should be better kept in `Object`:
+```
+classvar <dependantsDictionary, currentEnvironment, topEnvironment, <uniqueMethods;
+```
+
 
 # Alternatives
 
-There may be an alternative to adding a primitive for erasing (possibly multiple) entries in the method table. Then, any class could erase all methods that are not needed. It is unclear if this is a realistic option in the current method table design.
+There may be an alternative to adding a primitive for erasing (possibly multiple) entries in the method table. Then, any class could erase all methods that are not needed. 
+
+It is unclear if this is a realistic option in the current method table layout.

@@ -50,10 +50,19 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 
 
 
+| Current structure of class kernel | Suggested structure of class kernel |
+| ----------- | ----------- |
+| <image src="images/supercollider-class-structure.gif" width=500 alt="Diagram of the current structure of class kernel"> | <image src="images/supercollider-class-structure-with-abstract-object.gif" width=500 alt="Diagram of the current structure of class kernel"> |
 
-[Diagram of the current structure of class kernel](images/supercollider-class-structure.gif)
 
-[Diagram of the suggested structure of class kernel](images/supercollider-class-structure-with-abstract-object.gif)
+  
+
+
+
+
+
+
+
 
 
 Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta_AbstractObject`. This is possible, but not necessary, because the number of class methods and class variables is very small.

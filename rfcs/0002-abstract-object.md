@@ -15,17 +15,17 @@ Since many years, this has been part of the Ruby programming language, whose cla
 Because of its minimal interface, we can use it as a superclass for a broad variety of classes:
 
 - **Delegators** that receive method calls and forward them to an internal object.
--- add instance variables to any object at runtime (e.g. a dictionary that holds metadata)
--- override methods at runtime (e.g. a logger that records all methods that were called).
--- reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once).
--- simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
+  - add instance variables to any object at runtime (e.g. a dictionary that holds metadata)
+  - override methods at runtime (e.g. a logger that records all methods that were called).
+  - reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once).
+  - simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
 - **Prototype objects** whose methods are entries in a dictionary
--- fully integrate and are equivalent to any other object (any method can be defined dynamically, not only new names)
--- current prototype objects using dictionaries are unsafe (a class extension to any class above Dictionary may break code)
+  - fully integrate and are equivalent to any other object (any method can be defined dynamically, not only new names)
+  - current prototype objects using dictionaries are unsafe (a class extension to any class above Dictionary may break code)
 - **Algebraic objects** and other features
--- lazy objects that construct an AST instead of immediately executing the received calls.
--- method calls where each argument is informed that it will be passed to a given object
--- pluggable type systems, with a type signature for any method.
+  - lazy objects that construct an AST instead of immediately executing the received calls.
+  - method calls where each argument is informed that it will be passed to a given object
+  - pluggable type systems, with a type signature for any method.
 
 
 ## It solves some existing problems
@@ -50,10 +50,19 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 
 
 
+| Current structure of class kernel | Suggested structure of class kernel |
+| ----------- | ----------- |
+| <image src="images/supercollider-class-structure.gif" width=500 alt="Diagram of the current structure of class kernel"> | <image src="images/supercollider-class-structure-with-abstract-object.gif" width=500 alt="Diagram of the current structure of class kernel"> |
 
-[Diagram of the current structure of class kernel](images/supercollider-class-structure.gif)
 
-[Diagram of the suggested structure of class kernel](images/supercollider-class-structure-with-abstract-object.gif)
+  
+
+
+
+
+
+
+
 
 
 Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta_AbstractObject`. This is possible, but not necessary, because the number of class methods and class variables is very small.

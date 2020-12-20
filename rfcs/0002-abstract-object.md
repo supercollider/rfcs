@@ -62,7 +62,7 @@ https://ruby-doc.org/core-2.7.2/BasicObject.html
 | <image src="images/supercollider-class-structure.gif" width=400 alt="Diagram of the current structure of class kernel"> | <image src="images/supercollider-class-structure-with-abstract-object.gif" width=600 alt="Diagram of the current structure of class kernel"> |
 
 
-Theoretically, one may also want to make the class `Meta_Object`  subclass `Meta_AbstractObject`. This is possible, but not necessary, because the number of class methods and class variables is very small.
+Theoretically, one may also want to make the class `Meta_AbstractObject` be a subclass of a new class `AbstractClass`. This is not easy, because the interface of the class `Class` is important for introspection. But it is better to keep introspection methods anyhow (see below under Unresolved Questions).
 
 
 ## Suggested changes in primitives for optimization and integration

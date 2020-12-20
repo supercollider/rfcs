@@ -34,7 +34,13 @@ Because of its minimal interface, we can use it as a superclass for a broad vari
 - helps to avoid premature optimization (using classes and methods instead of functions), due to the lack of fully integrated prototype objects
 
 ## Method forwarding
-Imagine a wrapper object which by default forwards calls to its wrapped object. If such a call forwarding is very cheap, a wrapper can be widely used in place of the  object it holds. This has several consequences, for example this makes it often unnecessary to modify the class library. Also, depending on how cheap the call forwarding is, several layers of wrappers can be added on to add functionality.
+Imagine a wrapper object which by default forwards calls to its wrapped object. If such a call forwarding is very cheap, a wrapper can be widely used in place of the  object it holds. Helper methods can make this syntactically light. For example, the Neutral Quark has a method `lift`, which returns the receiver wrapped in a delegator that lifts all function calls to its elements:
+```supercollider
+a = [ "these", "are", "all", "mere", "words" ].lift;
+a + "letters" //  Lift([ "these letters", "are letters", "all letters", "mere letters", "words letters" ])
+```
+
+This has several consequences, for example this makes it often unnecessary to modify the class library. Also, depending on how cheap the call forwarding is, several layers of wrappers can be added on to add functionality.
 
 
 # Preliminary work

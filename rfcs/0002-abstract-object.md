@@ -14,8 +14,8 @@ Since many years, this has been part of the Ruby programming language, whose cla
 
 Because of its minimal interface, we can use it as a superclass for a broad variety of classes:
 
-- **Delegators** that receive method calls and forward them to an internal object
-  - add instance variables to any object at runtime (e.g. a dictionary that holds metadata)
+- **Delegators** that receive method calls and forward them to a wrapped object
+  - add instance variables to any wrapped object at runtime (e.g. a dictionary that holds metadata)
   - override methods at runtime (e.g. a logger that records all methods that were called)
   - reinterpret standard operations (e.g. a lift operator that lets us call methods on all objects in a collection at once)
   - simple and safe dependency mechanisms (no need for a central repository of dependants in the object class)
@@ -34,7 +34,7 @@ Because of its minimal interface, we can use it as a superclass for a broad vari
 - helps to avoid premature optimization (using classes and methods instead of functions), due to the lack of fully integrated prototype objects
 
 ## Method forwarding
-Imagine a wrapper object which by default forwards calls to its internal object. If such a call forwarding is very cheap, a wrapper can be widely used in place of the  object it holds. This has several consequences, for example this makes it often unnecessary to modify the class library. Also, depending on how cheap the call forwarding is, several layers of wrappers can be added on to add functionality.
+Imagine a wrapper object which by default forwards calls to its wrapped object. If such a call forwarding is very cheap, a wrapper can be widely used in place of the  object it holds. This has several consequences, for example this makes it often unnecessary to modify the class library. Also, depending on how cheap the call forwarding is, several layers of wrappers can be added on to add functionality.
 
 
 # Preliminary work
@@ -77,7 +77,7 @@ Regarding future delegator subclasses of `AbstractObject`, it is not clear how t
 
 1. One important question is whether this implementation has unintended consequences or complications in the backend, since it assumes `Object` to be the top end of the class hierarchy.
 
-2. It should be carefully discussed which methods from  `Object` should be kept in `AbstractObject`. Some of this is a trade-off between fluent integration and flexibility. For example, introspection methods are expected to work also in subclasses of abstract object, but each of these method are fixed and their names are not available for delegation. For example, should `.isNil`  return the nil-ness of the internal object or just false? Should `.class` return the class of the internal object?
+2. It should be carefully discussed which methods from  `Object` should be kept in `AbstractObject`. Some of this is a trade-off between fluent integration and flexibility. For example, introspection methods are expected to work also in subclasses of abstract object, but each of these method are fixed and their names are not available for delegation. For example, should `.isNil`  return the nil-ness of the wrapped object or just false? Should `.class` return the class of the wrapped object?
 
 An example of what problems one can have in making an existing class, such as a database, compatible with the use of such delegators is here https://bugs.ruby-lang.org/attachments/7943
 

@@ -107,11 +107,11 @@ Ruby follows an extremely lean approach, which leads to extra demands on classed
 
 I have in mind a more balanced approach. In general, introspection and bookkeeping methods should be kept. They can still be overridden in subclasses if necessary and possible. 
 
-Some of these methods (e.g. `gcDumpGrey`) are necessary for the system to work, they need to be kept to avoid larger modifications of the backend. Some of this is also a trade-off between fluent integration and flexibility. For example, introspection methods are expected to work also in subclasses of abstract object, but each of these method are fixed and their names are not available for delegation. For example, should `.isNil`  return the nil-ness of the wrapped object or just false? Should `.class` return the class of the wrapped object?
+Some of these methods (e.g. `gcDumpGrey`) are necessary for the system to work, they need to be kept to avoid larger modifications of the backend. Some of this is also a trade-off between fluent integration and flexibility. For example, introspection methods are expected to work also in subclasses of abstract object, but each of these method are fixed and their names are not available for delegation. Should `.isNil`  return the nil-ness of the wrapped object or just false? Should `.class` return the class of the wrapped object?
 
-There are boundary cases, for which we should find a general and clear reasoning: e.g.  `isKindOf` or `deepCopy`. 
+There are a number of boundary cases (e.g. `isKindOf` or `deepCopy`), for which we should find a general and clear reasoning. 
 
-I think, the problem is not so much what to do, but how to communicate clearly the intuition behind it.
+_I think, the problem is not so much what to do, but how to communicate clearly the intuition behind it._
 
 ## class methods and class variables
 Both class methods `*new` and `*newCopyArgs` are implemented by `AbstractObject`. Should the classvars should be better kept in `Object`?

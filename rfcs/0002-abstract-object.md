@@ -94,8 +94,8 @@ If the class is used pervasively, the above changes in the **primitives** should
 
 Regarding future delegator subclasses of `AbstractObject`, it is not clear how to make forwarded **keyword arguments** work. The same issue exists in the current object prototyping method and it probably needs to be solved separately.
 
-# Unresolved Questions (partly resolved, but open for discussion)
-
+# Unresolved Questions
+ (partly resolved, but open for discussion)
 
 ## Check for unintended consequences
 One important question is whether this implementation has unintended consequences or complications in the backend, since it assumes `Object` to be the top end of the class hierarchy.

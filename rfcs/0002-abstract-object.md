@@ -113,9 +113,9 @@ There are a number of boundary cases (e.g. `isKindOf` or `deepCopy`), for which 
 
 _I think, the problem is not so much what to do, but how to communicate clearly the intuition behind it._
 
-## class methods and class variables
+## Class methods and class variables
 Both class methods `*new` and `*newCopyArgs` are implemented by `AbstractObject`. Should these classvars better be kept in `Object`?
-```
+```supercollider
 classvar <dependantsDictionary, currentEnvironment, topEnvironment, <uniqueMethods;
 ```
 

@@ -1,6 +1,6 @@
 - Title: Add an /n_status Message and equivalent messages
 - Date proposed: 2021-01-12
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0013
 
 # Summary
 

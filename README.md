@@ -67,9 +67,11 @@ After the RFC is ready to go, please announce it to:
 
 - sc-dev
 - sc-users
-- scsynth.org
+- scsynth.org, under the Development category
 - Facebook (optional)
 - Slack #dev channel (optional)
+
+If you don't have an account in some of these places, someone else can do it for you if you make a request in the RFC submission.
 
 Here is a template:
 

@@ -139,3 +139,7 @@ Implementation of an RFC can start before, during, or after it has been approved
 This isn't a legal document, and you shouldn't spend a lot of time analyzing its wording. This process is intentionally quite informal and subjective. Situations will come up that may not have been anticipated by this article, and they should be handled on a case-by-case basis.
 
 If something is ambiguous in this article, that means it is left up to discussion. If something is a persistent cause of confusion, then it may be wise to amend the RFC process itself for clarification.
+
+## License
+
+All content in this repository is licensed under the terms of the [CC-BY-SA-4.0](LICENSE).

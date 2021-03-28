@@ -1,6 +1,6 @@
 - Title: Improve SuperCollider versioning for non-release builds
-- Date proposed:
-- RFC PR: https://github.com/dyfer/rfcs/pull/0000
+- Date proposed: 2021-03-27
+- RFC PR: https://github.com/supercollider/rfcs/pull/16
 - SuperCollider issue: 
 
 # Summary

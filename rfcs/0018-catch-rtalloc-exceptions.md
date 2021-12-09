@@ -1,6 +1,6 @@
 - Title: Catch RTAlloc exceptions to prevent leaky behavior
 - Date proposed: 2021-12-10
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/18
 
 # Summary
 

@@ -5,10 +5,10 @@
 - [Summary](#summary)
 - [Motivation](#motivation)
 - [The problem in detail](#the-problem-in-detail)
-- [Specification / Scope](#specification--scope)
+- [Scope](#scope)
     - [PR strategy](#pr-strategy)
     - [Along the way](#along-the-way)
-- [Discussion of conventions](#discussion-of-conventions)
+- [Specification / Discussion of conventions](#specification--discussion-of-conventions)
     - [What is time zero? ...and before time began](#what-is-time-zero-and-before-time-began)
     - [Coefficient initialization (filter UGens, etc.)](#coefficient-initialization-filter-ugens-etc)
     - [Triggered UGens](#triggered-ugens)
@@ -48,7 +48,7 @@ from its input buffers. Using those inputs, it either a) runs its calculation fu
 
 Many UGens incorrectly set the init sample to `0`. Others calculate the init sample correctly, and in doing so advance the state of the ugen's internal parameters in time, forgetting to reset its state back to time zero, so the first sample that is output is what should be the *second* sample, or the state is muddled in some other way. Relatedly, Many UGens that have state depending on previous outputs (e.g. IIR filter coefficients), are also set in an ad hoc way or not reset to represent the correct state at time zero. This is important if you're looking to do sample accurate work and expecting precise behavior (filter design, precise triggering, control systems, research more generally).
 
-# Specification / Scope
+# Scope
 
 This would ideally happen for all UGens, but that's a very large undertaking.
 
@@ -56,7 +56,7 @@ The author of this RFC (@mtmccrea) has initiated work on three groups of core UG
 
 Contributors can scale the scope of there contribution—even one source file of UGens can be a lot of work, fixing a batch of a handful of UGens in PR is still progress.
 
-I will set up a checklist of source files/UGens that have been addressed so work isn't duplicated. [link to be added].
+A [checklist of source files/UGens that have been addressed](https://github.com/mtmccrea/supercollider/wiki/UGen-Fix-List), to minimize duplicate work.
 
 ### PR strategy
 Reviewers are encouraged to comment on the approach here...
@@ -69,12 +69,12 @@ Reviewers are encouraged to comment on the approach here...
 ### Along the way
 Try to look back through SC Issues and PRs to see if any are fixed or impacted by each PR.
 
-You'll find more bugs as you do this work, almost certainly :). File Issues for bugs that are out of the present scope.
+You'll find more bugs as you do this work, almost certainly. File Issues for bugs that are out of the present scope.
 
 You'll also find gaps in documentation. If it's not clear why something works the way it does, chances are there are others that don't know either. Try to update docs (or source) along the way while your head is in that space :)
 
 
-# Discussion of conventions
+# Specification / Discussion of conventions
 Aside from the actual work of fixing UGen initialization, this purpose of this RFC is to also document the process and rationale for unitializing UGens, and linking to relevant discussions. The outcomes could be formalized in a wiki and/or Help docs.
 
 ### What is time zero? ...and before time began

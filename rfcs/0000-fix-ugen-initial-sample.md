@@ -6,14 +6,14 @@
 - [Motivation](#motivation)
 - [The problem in detail](#the-problem-in-detail)
 - [Scope](#scope)
-    - [PR strategy](#pr-strategy)
-    - [Along the way](#along-the-way)
 - [Specification / Discussion of conventions](#specification--discussion-of-conventions)
     - [What is time zero? ...and before time began](#what-is-time-zero-and-before-time-began)
     - [Coefficient initialization (filter UGens, etc.)](#coefficient-initialization-filter-ugens-etc)
     - [Triggered UGens](#triggered-ugens)
     - [Signal generating UGens](#signal-generating-ugens)
     - [Exceptions](#exceptions)
+- [PR strategy for fixing batches of UGens](#pr-strategy-for-fixing-batches-of-ugens)
+  - [Along the way](#along-the-way)
 - [Affected Issues and PRs (WIP)](#affected-issues-and-prs-wip)
     - [Related Issues](#related-issues)
     - [Related PRs](#related-prs)
@@ -21,61 +21,45 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-- Title: Fix UGen Initializations
-- Date proposed: 2022-05-24
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+-  Title: Fix UGen Initializations
+- Date proposed: 2022-05-25
+- RFC PR: https://github.com/supercollider/rfcs/pull/19
 
 # Summary
 
 A majority of UGens do not initialize with a correct _initialization_ sample, and subsequently output an incorrect _first_ sample. This RFC proposes that this be corrected for a substantial batch of core UGens, and to document the discussion for reference as the effort moves on to cover more of the UGen source files.
 
-Work is underway for `OscUGens`, `FilterUGens`, and `LFUGens`, including a PR already submitted for [OscUGens](https://github.com/supercollider/supercollider/pull/5787) to serve as a concrete reference to this discussion. I chose to use `OscUGens` as the starting point because I expect these changes are minor (likely won't be heard), and are hopefully not overly controversial. Changes to UGens which are more elaborate or might create more substantial change in behavior will be left out of these kind of "batch" fixes, and submitted as separate PRs
-Progress on these three source files is also [tracked here](https://github.com/mtmccrea/supercollider/wiki/UGen-Fix-List).
+Work is underway for `OscUGens`, `FilterUGens`, and `LFUGens`, including a PR already submitted for [OscUGens](https://github.com/supercollider/supercollider/pull/5787) to serve as a concrete reference to this discussion. I chose to use `OscUGens` as the starting point because I expect these changes are minor (likely won't be heard), and are hopefully not overly controversial.
+
+Changes to UGens which are more elaborate or might create more substantial change in behavior will be left out of these kind of "batch" fixes, and submitted as separate PRs.
+Progress on the above three source files is also [tracked here](https://github.com/mtmccrea/supercollider/wiki/UGen-Fix-List).
 
 # Motivation
 
-A lack of clarity and consistency around how UGens are initialized has led to
-many UGens being improperly initialized. The affects include: UGen graphs aren't properly "primed" (users see unexpected results), samples are delayed, filters
-can pop from incorrect feedback coefficients, accessing unassigned memory, etc. Users regularly report Issues that can be traced back to UGen initialization problems. They range in complexity, but clarifying some core concepts around initialization leads to a formulaic approach to fixing many UGens.
+A lack of clarity and consistency around how UGens are initialized has led to many UGens being improperly initialized. The affects include:
+- UGen graphs aren't properly "primed" (users see unexpected results),
+- samples are delayed,
+- filters can pop from incorrect feedback coefficients,
+- accessing unassigned memory, etc.
+
+Users regularly report Issues that can be traced back to UGen initialization problems. They range in complexity, but clarifying some core concepts around initialization leads to a formulaic approach to fixing many UGens.
 
 
 # The problem in detail
 
-To clarify terms: The *initializations sample* (or "*init sample*"), is
-not the same as the *first sample* that is output by the UGen.
-When the synth graph is assembled, the UGens are interconnected through shared wirebufs. Each UGen is initialized by reading in one sample
-from its input buffers. Using those inputs, it either a) runs its calculation function for one cycle to generate the first output value, or b) directly calculates its first output value in the constructor. This single _init sample_ is written to its output buffer which is in turn consumed by downstream UGens for their initialization. Many Ugens depend on knowing their first input values to determine their state. Once the synth is played, the first sample written out by each UGen _needs to be the same as the init sample_, if possible, so that at time zero the UGen graph matches its initial state.
+To clarify terms: The *initializations sample* (or "*init sample*"), is not the same as the *first sample* that is output by the UGen. When the synth graph is assembled, the UGens are interconnected through shared wirebufs. Each UGen is initialized by reading in one sample from its input buffers. Using those inputs, it either a) runs its calculation function for one cycle to generate the first output value, or b) directly calculates its first output value in the constructor. This single _init sample_ is written to its output buffer which is in turn consumed by downstream UGens for their initialization. Many Ugens depend on knowing their first input values to determine their state. Once the synth is played, the first sample written out by each UGen _needs to be the same as the init sample_, if possible, so that at time zero the UGen graph matches its initial state.
 
 Many UGens incorrectly set the init sample to `0`. Others calculate the init sample correctly, and in doing so advance the state of the ugen's internal parameters in time, forgetting to reset its state back to time zero, so the first sample that is output is what should be the *second* sample, or the state is muddled in some other way. Relatedly, Many UGens that have state depending on previous outputs (e.g. IIR filter coefficients), are also set in an ad hoc way or not reset to represent the correct state at time zero. This is important if you're looking to do sample accurate work and expecting precise behavior (filter design, precise triggering, control systems, research more generally).
 
 # Scope
 
-This would ideally happen for all UGens, but that's a very large undertaking.
+Ideally, all UGens would be checked and corrected for proper initialization, but that's a very large undertaking.
 
-The author of this RFC (@mtmccrea) has initiated work on three groups of core UGens, those in `OscUGens`, `FilterUGens`, and `LFUGens` (please reach out if you've also done work in this scope on these source files). By first fixing 3 groups of UGens, it makes solid headway, and forms a blueprint for correcting more in the future.
+The author of this RFC has initiated work on three groups of core UGens, those in `OscUGens`, `FilterUGens`, and `LFUGens` (please reach out if you've also done work in this scope on these source files). By first fixing 3 groups of UGens, it makes solid headway, and forms a blueprint for correcting more in the future. A [checklist of source files/UGens that have been addressed](https://github.com/mtmccrea/supercollider/wiki/UGen-Fix-List), to minimize duplicate work. Contributors can scale the scope of their contribution—even one source file of UGens can be a lot of work, fixing a batch of a handful of UGens in PR is still helpful progress.
 
-Contributors can scale the scope of there contribution—even one source file of UGens can be a lot of work, fixing a batch of a handful of UGens in PR is still progress.
-
-A [checklist of source files/UGens that have been addressed](https://github.com/mtmccrea/supercollider/wiki/UGen-Fix-List), to minimize duplicate work.
-
-### PR strategy
-Reviewers are encouraged to comment on the approach here...
-
-  - The current thinking is to group the minor, non-controversial changes, into a single PR per UGen source file.
-  - One commit per `UGen` fix. Identical or "related" fixes could be bundled into a single commit if easily separated and reasoned through.
-  - Exclude from the batch PR UGens that require more elaborate fixes, large behavior changes, or judgement calls that could use more information/discussion. Submit these as separate PRs, cross-referenced to other relevant PRs.
-    - The hope is that discussion around one change wouldn't hold up the whole batch!
-
-### Along the way
-Try to look back through SC Issues and PRs to see if any are fixed or impacted by each PR.
-
-You'll find more bugs as you do this work, almost certainly. File Issues for bugs that are out of the present scope.
-
-You'll also find gaps in documentation. If it's not clear why something works the way it does, chances are there are others that don't know either. Try to update docs (or source) along the way while your head is in that space :)
-
+Aside from the actual work of fixing UGen initialization, this purpose of this RFC is to also document the process and rationale for how UGens are initialized. The outcomes could be formalized in a wiki and/or Help docs. The following discussion would form the kernel of such docs...
 
 # Specification / Discussion of conventions
-Aside from the actual work of fixing UGen initialization, this purpose of this RFC is to also document the process and rationale for unitializing UGens, and linking to relevant discussions. The outcomes could be formalized in a wiki and/or Help docs.
 
 ### What is time zero? ...and before time began
 Conceptually, what should we expect happened before a UGen starts? The working model here is: *silence* — assume input that preceded the first sample was zeros.
@@ -102,6 +86,22 @@ There are reasons for UGens to deviate from the behavior above. Assuming the con
 Some UGens are less clear and would require some discussion before changing behavior. For example, `Impulse`: it's a fair, but maybe not obvious assumption that the init/first sample should be an impulse, as oppose to waiting a full period before sending out its first impulse. This bug is mixed in with others, and given its wide use, warrants individual discussion (as opposed to being grouped into a batch of other minor fixes in this project).
 
 
+# PR strategy for fixing batches of UGens
+Reviewers are encouraged to comment on the approach here...
+
+  - The current thinking is to group the minor, non-controversial changes, into a single PR per UGen source file.
+  - One commit per `UGen` fix. Identical or "related" fixes could be bundled into a single commit if easily separated and reasoned through.
+  - Exclude from the batch PR UGens that require more elaborate fixes, large behavior changes, or judgement calls that could use more information/discussion. Submit these as separate PRs, cross-referenced to other relevant PRs.
+    - The hope is that discussion around one change wouldn't hold up the whole batch!
+
+## Along the way
+Try to look back through SC Issues and PRs to see if any are fixed or impacted by each PR.
+
+You'll find more bugs as you do this work, almost certainly. File Issues for bugs that are out of the present scope.
+
+You'll also find gaps in documentation. If it's not clear why something works the way it does, chances are there are others that don't know either. Try to update docs (or source) along the way while your head is in that space :)
+
+
 # Affected Issues and PRs (WIP)
 
 ### Related Issues
@@ -119,7 +119,4 @@ Some UGens are less clear and would require some discussion before changing beha
 - https://github.com/supercollider/supercollider/pull/4971 (PanAz)
 
 ### Related discussions
-- work is well underway, with some spotty notes and records here:
-    - https://github.com/mtmccrea/supercollider/projects/1
-    - https://github.com/mtmccrea/supercollider/wiki/Notes-on-Ctor-fixes
-- "Decide on a policy for handling breaking changes when fixing UGen bugs" https://github.com/supercollider/supercollider/issues/4976
+- https://github.com/supercollider/supercollider/issues/4976

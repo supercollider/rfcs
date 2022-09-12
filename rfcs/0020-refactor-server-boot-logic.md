@@ -1,6 +1,6 @@
 - Title: Refactor server boot logic
 - Date proposed: 2022-09-12
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0020
 
 # Summary
 

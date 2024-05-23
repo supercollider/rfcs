@@ -1,6 +1,6 @@
 - Title: Move Wiki from GitHub and convert to a static site
 - Date proposed:2024-01-17
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/0021 **update this number after RFC PR has been filed**
 
 # Summary
 

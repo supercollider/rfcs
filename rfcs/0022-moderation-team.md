@@ -1,6 +1,6 @@
 - Title: Creation of a moderation team
 - Date proposed: 2024-06-16
-- RFC PR: https://github.com/supercollider/rfcs/pull/0000 **update this number after RFC PR has been filed**
+- RFC PR: https://github.com/supercollider/rfcs/pull/22
 
 # Summary
 
